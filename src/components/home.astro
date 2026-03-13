@@ -1,6 +1,6 @@
 ---
 import LetterGlitch from "../React/LetterGlitch.tsx";
-import LogoWall from "../components/logoWall.astro";
+import LogoWall from "../React/LogoWall.tsx";
 import SkillsList from "../React/SkillsList.tsx";
 import TypingText from "../React/TypingText.tsx";
 ---
@@ -95,7 +95,7 @@ import TypingText from "../React/TypingText.tsx";
       </div>
     </div>
 
-    <LogoWall />
+    <LogoWall client:load />
   </div>
 
   <div class="w-full bg-[var(--background)] py-12 md:py-24 border-y border-[var(--white-icon-tr)] mt-8">
