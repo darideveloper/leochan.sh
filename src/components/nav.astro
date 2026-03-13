@@ -41,7 +41,7 @@ const navItems: NavItem[] = [
                 aria-label={item.label}
                 class="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base relative group"
               >
-                <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 bg-[#A9FF5B] nav-indicator hidden md:block" />
+                <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 bg-tertiary nav-indicator hidden md:block" />
                 <span class="md:hidden flex items-center justify-center w-6 h-6">
                   <fragment set:html={item.icon} />
                 </span>
@@ -66,8 +66,8 @@ const navItems: NavItem[] = [
   }
 
   nav.scrolling {
-    background-color: var(--component-bg);
-    border-color: #ffffff10;
+    background-color: var(--surface);
+    border-color: var(--border-subtle);
     border-radius: 9999px;
   }
 
@@ -88,12 +88,12 @@ const navItems: NavItem[] = [
       left: 50%;
       position: fixed;
       border-radius: 1rem 1rem 0 0;
-      border-color: #ffffff10;
+      border-color: var(--border-subtle);
     }
 
     nav.scrolling {
       border-radius: 1rem 1rem 0 0;
-      background-color: var(--component-bg);
+      background-color: var(--surface);
     }
 
     body {

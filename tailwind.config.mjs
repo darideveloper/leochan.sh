@@ -3,6 +3,17 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      colors: {
+        background: 'var(--background)',
+        surface: 'var(--surface)',
+        primary: 'var(--primary)',
+        'primary-light': 'var(--primary-light)',
+        secondary: 'var(--secondary)',
+        tertiary: 'var(--tertiary)',
+        foreground: 'var(--foreground)',
+        muted: 'var(--muted)',
+        'border-subtle': 'var(--border-subtle)',
+      },
       keyframes: {
         scaleAnim: {
           '0%': { transform: 'scale(1)' },
