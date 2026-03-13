@@ -2,7 +2,7 @@
 import TypingText from "../React/TypingText.tsx";
 ---
 
-<section id="contact" class="w-full py-12 border-t border-border-subtle">
+<section id="contact" class="w-full bg-[var(--background)] py-12 md:py-24 border-y border-[var(--white-icon-tr)] mt-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">
       <TypingText client:visible text="[ INCOMING_TRANSMISSION ]" />
@@ -34,7 +34,7 @@ import TypingText from "../React/TypingText.tsx";
             placeholder="Nom"
             aria-label="Nom"
             required
-            class="px-4 py-2 bg-surface text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)]"
+            class="px-4 py-2 bg-[var(--background)] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)] transition-all hover:bg-white/5"
           />
           <input
             type="email"
@@ -42,7 +42,7 @@ import TypingText from "../React/TypingText.tsx";
             placeholder="E-mail"
             aria-label="E-mail"
             required
-            class="px-4 py-2 bg-surface text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)]"
+            class="px-4 py-2 bg-[var(--background)] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)] transition-all hover:bg-white/5"
           />
           <textarea
             name="message"
@@ -50,7 +50,7 @@ import TypingText from "../React/TypingText.tsx";
             aria-label="Message"
             rows="6"
             required
-            class="px-4 py-2 bg-surface text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)] resize-none"
+            class="px-4 py-2 bg-[var(--background)] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)] resize-none transition-all hover:bg-white/5"
           ></textarea>
           <button
             type="submit"

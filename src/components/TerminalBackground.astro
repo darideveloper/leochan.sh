@@ -3,6 +3,7 @@
 
 <div class="terminal-bg-container">
   <div class="base-layer"></div>
+  <div class="grain-layer"></div>
   <div class="scanline-layer"></div>
   <div class="vignette-layer"></div>
   <div class="interference-layer"></div>
@@ -17,26 +18,40 @@
     height: 100%;
     z-index: -10;
     overflow: hidden;
-    background-color: var(--background, #06020C);
+    background-color: #040108; /* Slightly darker than brand black for deeper blacks */
     pointer-events: none;
   }
 
-  /* Layer 1: Base Image with Ken Burns Effect */
+  /* Layer 1: Base Image with Enhanced Ken Burns */
   .base-layer {
     position: absolute;
-    top: -5%;
-    left: -5%;
-    width: 110%;
-    height: 110%;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
     background-image: url("/background.webp");
     background-size: cover;
     background-position: center;
-    opacity: 0.35;
+    opacity: 0.18; /* Darker: reduced from 0.35 */
     will-change: transform;
-    animation: ken-burns 30s ease-in-out infinite alternate;
+    animation: ken-burns 25s ease-in-out infinite alternate;
   }
 
-  /* Layer 2: CRT Scanlines */
+  /* Layer 2: Subtle Film Grain */
+  .grain-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Stop_overexposed_noise_grain.jpg");
+    background-size: 200px;
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+    z-index: 1;
+  }
+
+  /* Layer 3: Sharp CRT Scanlines */
   .scanline-layer {
     position: absolute;
     top: 0;
@@ -46,13 +61,13 @@
     background: linear-gradient(
       to bottom,
       rgba(18, 16, 16, 0) 50%,
-      rgba(0, 0, 0, 0.15) 50%
+      rgba(0, 0, 0, 0.3) 50% /* Increased contrast: from 0.15 to 0.3 */
     );
-    background-size: 100% 4px;
-    z-index: 1;
+    background-size: 100% 3px; /* Tighter scanlines for more "texture" */
+    z-index: 2;
   }
 
-  /* Layer 3: Radial Vignette */
+  /* Layer 4: Deep Radial Vignette */
   .vignette-layer {
     position: absolute;
     top: 0;
@@ -61,68 +76,76 @@
     height: 100%;
     background: radial-gradient(
       circle,
-      rgba(6, 2, 12, 0) 40%,
-      rgba(6, 2, 12, 0.9) 100%
+      rgba(6, 2, 12, 0) 30%, /* Focus tighter in the center */
+      rgba(4, 1, 8, 1) 100%
     );
-    z-index: 2;
+    z-index: 3;
   }
 
-  /* Layer 4: Signal Interference (Flicker/Jitter) */
+  /* Layer 5: Increased Signal Interference (Flicker/Jitter) */
   .interference-layer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 3;
+    z-index: 4;
     opacity: 0;
-    background-color: rgba(255, 255, 255, 0.02);
-    animation: signal-interference 15s steps(1) infinite;
+    background-color: rgba(255, 255, 255, 0.04);
+    animation: signal-interference 10s steps(1) infinite; /* Faster cycle: from 15s to 10s */
   }
 
-  /* Ken Burns Animation */
+  /* Ken Burns Animation - Increased Scale */
   @keyframes ken-burns {
     0% {
       transform: scale(1) translate(0, 0);
     }
     100% {
-      transform: scale(1.1) translate(-2%, -2%);
+      transform: scale(1.2) translate(-3%, -3%); /* Increased scale and movement */
     }
   }
 
-  /* Randomized Signal Interference Keyframes */
+  /* More Aggressive Signal Interference Keyframes */
   @keyframes signal-interference {
-    0%, 98% {
+    0%, 97% {
       opacity: 0;
-      transform: translateX(0);
+      transform: translateX(0) skewX(0deg);
+    }
+    97.5% {
+      opacity: 0.15;
+      transform: translateX(2px) skewX(1deg);
+    }
+    98% {
+      opacity: 0.08;
+      transform: translateX(-2px) skewX(-1deg);
     }
     98.5% {
-      opacity: 0.1;
-      transform: translateX(1px);
+      opacity: 0.2;
+      transform: translateX(4px) translateY(1px);
     }
     99% {
-      opacity: 0.05;
-      transform: translateX(-1px);
-    }
-    99.5% {
-      opacity: 0.15;
-      transform: translateX(2px);
+      opacity: 0.1;
+      transform: translateX(-1px) scaleY(1.01);
     }
     100% {
       opacity: 0;
-      transform: translateX(0);
+      transform: translateX(0) skewX(0deg);
     }
   }
 
   /* Mobile Optimizations */
   @media (max-width: 768px) {
     .base-layer {
-      animation-duration: 60s; /* Slower animation on mobile */
-      opacity: 0.25; /* More transparent for better contrast on small screens */
+      animation-duration: 45s;
+      opacity: 0.12; /* Even darker on mobile for readability */
     }
     
     .scanline-layer {
-      background-size: 100% 3px; /* Slightly tighter scanlines */
+      background-size: 100% 2px;
+    }
+
+    .interference-layer {
+      animation-duration: 15s; /* Less frequent on mobile to save battery */
     }
   }
 
@@ -130,7 +153,7 @@
   @media (prefers-reduced-motion: reduce) {
     .base-layer {
       animation: none;
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
     .interference-layer {
       animation: none;
