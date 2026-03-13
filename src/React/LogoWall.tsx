@@ -4,12 +4,12 @@ import {
   SiNextdotjs, SiNodedotjs, SiHtml5, SiCss, SiJavascript, 
   SiGit, SiSupabase, SiMysql, SiGnubash, SiDocker, 
   SiAnsible, SiN8N, SiGitlab, SiPython, SiPhp, 
-  SiPostgresql, SiAuthentik, SiCisco, SiWazuh, SiRestic, 
-  SiBackblaze, SiKasm, SiDjango, SiRedis, SiCsharp, 
-  SiDotnet, SiServicenow, SiRustdesk, SiEclipsemosquitto 
+  SiPostgresql, SiAuthentik, SiCisco, SiBackblaze, SiDjango, SiRedis, 
+  SiDotnet, SiNow, SiRustdesk, SiEclipsemosquitto 
 } from "react-icons/si";
 import { FaMicrosoft } from "react-icons/fa";
 import { VscAzure, VscAzureDevops } from "react-icons/vsc";
+import { TbBrandCSharp } from "react-icons/tb";
 
 const technologies = [
   { name: "astro", icon: <SiAstro /> },
@@ -23,7 +23,7 @@ const technologies = [
   { name: "python", icon: <SiPython /> },
   { name: "php", icon: <SiPhp /> },
   { name: "django", icon: <SiDjango /> },
-  { name: "C#", icon: <SiCsharp /> },
+  { name: "C#", icon: <TbBrandCSharp /> },
   { name: ".NET", icon: <SiDotnet /> },
   { name: "git", icon: <SiGit /> },
   { name: "docker", icon: <SiDocker /> },
@@ -31,13 +31,10 @@ const technologies = [
   { name: "n8n", icon: <SiN8N /> },
   { name: "authentik", icon: <SiAuthentik /> },
   { name: "cisco", icon: <SiCisco /> },
-  { name: "wazuh", icon: <SiWazuh /> },
   { name: "azure", icon: <VscAzure /> },
   { name: "microsoft", icon: <FaMicrosoft /> },
-  { name: "serviceNow", icon: <SiServicenow /> },
-  { name: "restic", icon: <SiRestic /> },
+  { name: "serviceNow", icon: <SiNow /> },
   { name: "backblaze", icon: <SiBackblaze /> },
-  { name: "kasm", icon: <SiKasm /> },
   { name: "redis", icon: <SiRedis /> },
   { name: "MQTT", icon: <SiEclipsemosquitto /> },
   { name: "rustDesk", icon: <SiRustdesk /> },

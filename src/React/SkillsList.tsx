@@ -7,7 +7,8 @@ import {
   MdSettingsSuggest, 
   MdMemory, 
   MdPersonSearch,
-  MdExpandMore 
+  MdExpandMore,
+  MdAutorenew
 } from "react-icons/md";
 
 const CategoryIcons: Record<string, React.ReactNode> = {
@@ -107,7 +108,7 @@ const SkillsList = () => {
                   aria-labelledby={triggerId}
                   className={`transition-all duration-300 px-4 ${
                     isExpanded
-                      ? "max-h-[500px] pb-4 opacity-100"
+                      ? "max-h-[800px] pb-4 opacity-100"
                       : "max-h-0 opacity-0 pointer-events-none"
                   }`}
                 >

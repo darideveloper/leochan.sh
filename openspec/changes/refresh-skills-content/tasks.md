@@ -10,5 +10,5 @@ Order of operations for implementing the skills refresh.
 
 ## Validation Tasks
 - [x] **VERIFY** all icons in `LogoWall` render correctly and marquee speed is appropriate. <!-- id: 5 -->
-- [ ] **VERIFY** the `SkillsList` dropdowns function properly and show the full text without clipping. <!-- id: 6 -->
-- [ ] **VERIFY** mobile responsiveness of the `SkillsList` with the longer text content. <!-- id: 7 -->
+- [x] **VERIFY** the `SkillsList` dropdowns function properly and show the full text without clipping. <!-- id: 6 -->
+- [x] **VERIFY** mobile responsiveness of the `SkillsList` with the longer text content. <!-- id: 7 -->
