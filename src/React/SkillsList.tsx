@@ -12,8 +12,8 @@ import {
 
 const CategoryIcons: Record<string, React.ReactNode> = {
   "Cybersécurité & Défense Réseau": <MdSecurity className="w-6 h-6 text-[var(--sec)] opacity-70" />,
-  "Infrastructure & DevOps (Le Stack Nekocorp)": <MdDns className="w-6 h-6 text-[var(--sec)] opacity-70" />,
-  "Développement Logiciel": <MdCode className="w-6 h-6 text-[var(--sec)] opacity-70" />,
+  "Infrastructure & DevOps": <MdDns className="w-6 h-6 text-[var(--sec)] opacity-70" />,
+  "Développement Logiciel & Systèmes": <MdCode className="w-6 h-6 text-[var(--sec)] opacity-70" />,
   "Gestion des Services IT (ITSM)": <MdSettingsSuggest className="w-6 h-6 text-[var(--sec)] opacity-70" />,
   "Matériel & Edge Computing": <MdMemory className="w-6 h-6 text-[var(--sec)] opacity-70" />,
   "Profil Professionnel & Soft Skills": <MdPersonSearch className="w-6 h-6 text-[var(--sec)] opacity-70" />,
@@ -24,37 +24,36 @@ const SkillsList = () => {
 
   const skills = {
     "Cybersécurité & Défense Réseau": [
-      "Architecture Zero-Trust (Least Privilege)",
-      "IAM : Authentik, Cisco Duo (MFA), Forward Auth",
-      "Sécurité Réseau : SafeLine WAF, Segmentation VLAN",
-      "Détection de menaces : Wazuh (SIEM), Audit logging",
+      "Architecture Zero-Trust : Environnements segmentés 'Moindre Privilège'",
+      "IAM : Authentik, Cisco Duo (MFA), Reverse Proxy Forward Auth",
+      "Sécurité Réseau : SafeLine WAF, VLAN Segregation, Router on a stick",
+      "Détection de menaces : Déploiement Wazuh (SIEM) et Audit logging",
       "Sécurité Web : Prévention SQLi (PDO), Protection CSRF",
     ],
-    "Infrastructure & DevOps (Le Stack Nekocorp)": [
-      "Conteneurisation : Docker & Docker Compose",
-      "Virtualisation : Kasm Workspaces (Environnements éphémères)",
+    "Infrastructure & DevOps": [
+      "Conteneurisation : Docker & Docker Compose (Avancé)",
+      "Virtualisation : Kasm Workspaces (Environnements éphémères / Bastions)",
       "Automatisation : Ansible (AAP), n8n, GitLab CI/CD",
-      "Cloud Hybride : Azure AD, Microsoft Graph API, LDAP",
-      "Sauvegarde & Disaster Recovery : Restic, Backblaze B2",
+      "Cloud & Hybride : Azure AD, Microsoft Graph API, Sync LDAP",
+      "Sauvegarde & PRA : Restic, Backblaze B2 (S3), Optimisation RTO/RPO",
     ],
-    "Développement Logiciel": [
-      "Backend : Python (Django, Sockets), PHP (Native LAMP)",
-      "Frontend : HTML5, CSS3 (Tailwind CSS, Glassmorphism)",
-      "Bases de données : PostgreSQL, MySQL, SMDB (GLPI)",
-      "Programmation Système : Sockets TCP/UDP, Packet Headers",
+    "Développement Logiciel & Systèmes": [
+      "Backend : Python (Sockets, Multi-threading)",
+      "Gestion de BDD : SMDB (GLPI)",
+      "Prog. Système : Sockets TCP/UDP, Conception de headers de paquets",
     ],
     "Gestion des Services IT (ITSM)": [
-      "Framework ITIL : Gestion des incidents & standards",
-      "Automatisation des flux : Ticketing auto (ServiceNow, GLPI)",
-      "Gestion des Endpoints : RustDesk Enterprise",
+      "Framework ITIL : Alignement sur les standards de gestion d'incidents",
+      "Automatisation des flux : Ticketing auto (ServiceNow, GLPI), Self-service",
+      "Gestion des terminaux : RustDesk Enterprise, Provisionnement auto",
     ],
     "Matériel & Edge Computing": [
-      "Architecture Bare Metal : Raspberry Pi 5 (NVMe I/O)",
-      "Optimisation : GPU encoding (RTX 3060), Node allocation",
+      "Architecture Bare Metal : Raspberry Pi 5 (NVMe I/O), Noeuds Intel i9",
+      "Optimisation : GPU encoding (RTX 3060), Allocation de noeuds",
     ],
     "Profil Professionnel & Soft Skills": [
-      "Stratégie & Ventes Techniques (GTM, Pitching)",
-      "Réponse aux Incidents : Récupération systémique critique",
+      "Stratégie & Ventes Techniques : Transition Dev vers Architecte (GTM)",
+      "Réponse aux Incidents : Récupération systémique critique sous pression",
       "Apprentissage Continu : Pont entre académie et entreprise",
     ],
   };
@@ -91,7 +90,7 @@ const SkillsList = () => {
                 tabIndex={0}
                 aria-expanded={isExpanded}
                 aria-controls={sectionId}
-                className="md:w-[450px] w-full bg-surface backdrop-blur-md rounded-2xl text-left hover:bg-opacity-80 transition-all border border-[var(--white-icon-tr)] cursor-pointer overflow-hidden focus:outline-none focus:ring-2 focus:ring-[var(--sec)] focus:ring-opacity-50"
+                className="md:w-[450px] w-full bg-white/5 backdrop-blur-md rounded-2xl text-left hover:bg-white/10 transition-all border border-white/10 cursor-pointer overflow-hidden focus:outline-none focus:ring-2 focus:ring-[var(--sec)] focus:ring-opacity-50"
               >
                 <div className="flex items-center gap-3 p-4">
                   {CategoryIcons[category]}
