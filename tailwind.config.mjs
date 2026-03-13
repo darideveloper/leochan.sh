@@ -14,6 +14,9 @@ export default {
         muted: 'var(--muted)',
         'border-subtle': 'var(--border-subtle)',
       },
+      fontFamily: {
+        vcr: ["VCR OSD MONO", "monospace"],
+      },
       keyframes: {
         scaleAnim: {
           '0%': { transform: 'scale(1)' },

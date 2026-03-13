@@ -26,6 +26,13 @@ const { title } = Astro.props;
       type="font/woff2"
       crossorigin="anonymous"
     />
+    <link
+      rel="preload"
+      href="/fonts/VCR_OSD_MONO.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
 
     <meta
       property="og:title"
@@ -79,6 +86,14 @@ const { title } = Astro.props;
     font-display: swap;
   }
 
+  @font-face {
+    font-family: "VCR OSD MONO";
+    src: url("/fonts/VCR_OSD_MONO.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     --background: #06020C;
     --surface: #14101A9C;
@@ -109,6 +124,15 @@ const { title } = Astro.props;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "VCR OSD MONO", monospace;
   }
 
   *::selection {
