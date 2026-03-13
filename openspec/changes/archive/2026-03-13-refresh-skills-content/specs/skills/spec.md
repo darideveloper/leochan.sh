@@ -2,7 +2,7 @@
 
 This spec describes the structural and content updates for the professional skills section.
 
-## MODIFIED Requirements
+## ADDED Requirements
 
 ### Requirement: Professional Skill Categories
 The `SkillsList` component MUST display 5 professional categories reflecting the user's "T-shaped" skill set.
