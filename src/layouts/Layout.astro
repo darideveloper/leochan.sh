@@ -1,4 +1,6 @@
 ---
+import TerminalBackground from "@/components/TerminalBackground.astro";
+
 interface Props {
   title: string;
 }
@@ -83,6 +85,7 @@ const { title } = Astro.props;
     </script>
   </head>
   <body class="bg-[--background]">
+    <TerminalBackground />
     <slot />
   </body>
 </html>
