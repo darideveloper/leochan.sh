@@ -18,14 +18,14 @@ const projects: Project[] = [
   {
     title: "MoviesForDevs",
     image: moviesfordevs as ImageMetadata,
-    link: "https://github.com/gothsec/MoviesForDevs",
+    link: "https://github.com/nekocorp/MoviesForDevs",
     preview: "https://movies-for-devs.vercel.app",
     status: "Déployé",
   },
   {
     title: "StockIn",
     image: stockin as ImageMetadata,
-    link: "https://github.com/gothsec/stockin-demo",
+    link: "https://github.com/nekocorp/stockin-demo",
     preview: "https://stockin-demo.vercel.app",
     status: "En développement",
   },
@@ -50,12 +50,12 @@ const projects: Project[] = [
   id="projects"
   class="py-12 border-t border-border-subtle text-[var(--white)]"
 >
-  <div class="max-w-5xl mx-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">
-      <TypingText client:visible text="Mon travail" />
+      <TypingText client:visible text="[ LOG_FILES ]" />
     </h2>
     <h3 class="text-4xl md:text-5xl font-medium mb-8">
-      <TypingText client:visible text="Projets" />
+      <TypingText client:visible text="[02] _NEKOCORP_INFRA" />
     </h3>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -124,11 +124,11 @@ const projects: Project[] = [
     </div>
     <a
       target="_blank"
-      href="https://github.com/Gothsec?tab=repositories"
+      href="https://github.com/nekocorp?tab=repositories"
       aria-label="GitHub"
       class="w-full flex items-center justify-center gap-2 mt-9 text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-surface hover:bg-[var(--white-icon-tr)] hover:scale-105"
     >
-      <span class="md:text-lg text-md">Plus de projets sur</span>
+      <span class="md:text-lg text-md font-vcr">cat ./more_projects.log</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

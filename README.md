@@ -1,10 +1,10 @@
-# Portfolio
-![OscarHernandez-portfolio](https://github.com/user-attachments/assets/e284a42b-15c5-495c-99c7-ad5c1eb3bbe7)
+# Nekocorp Portfolio
+![Léonard-Anton-portfolio](https://github.com/user-attachments/assets/e284a42b-15c5-495c-99c7-ad5c1eb3bbe7)
 ![Deploy Status](https://img.shields.io/badge/Deploy-Vercel-black?style=flat&logo=vercel)
 
 ---
 
-[Demo](https://oscarhernandez.vercel.app/)
+[Demo](https://leonardanton.me/)
 
 [Astro Themes](https://astro.build/themes/details/dark-minimal/)
 
@@ -59,7 +59,7 @@ src/
 ## **Local configuration** 
 1. Clone the repo:  
 ```
-git clone https://github.com/Gothsec/Astro-portfolio
+git clone https://github.com/nekocorp/Astro-portfolio
 ```
 2. Install dependencies:
 ```  
@@ -73,4 +73,4 @@ npm run dev
 > **Important Notice:**  
 > This project is licensed under the [MIT License](https://opensource.org/licenses/mit).  
 > According to the license terms, any redistribution (including compiled or modified versions), you **must** retain the original copyright 
-> notice and the full license text. Copyright © 2025 Oscar Hernandez. All rights reserved.
+> notice and the full license text. Copyright © 2025 Léonard-Anton. All rights reserved.

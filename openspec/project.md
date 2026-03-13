@@ -1,7 +1,7 @@
 # Project Context
 
 ## Purpose
-A high-performance personal portfolio for Oscar Andres Hernandez Pineda, a Software Developer. The project aims to showcase interactive digital experiences, technical expertise in frontend and backend development, and a commitment to modern web standards (performance, SEO, and accessibility).
+A high-performance personal portfolio for Léonard-Anton, a Cybersecurity & Infrastructure Engineer. The project aims to showcase Zero-Trust architectures, infrastructure automation (Nekocorp lab), and professional experience at TotalEnergies, using modern web standards (performance, SEO, and accessibility).
 
 ## Tech Stack
 - **Framework:** Astro 5.x (Static Site Generation)
