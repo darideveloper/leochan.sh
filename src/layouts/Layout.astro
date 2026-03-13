@@ -1,5 +1,6 @@
 ---
 import TerminalBackground from "@/components/TerminalBackground.astro";
+import StartupSequence from "@/React/StartupSequence";
 
 interface Props {
   title: string;
@@ -72,25 +73,43 @@ const { title } = Astro.props;
         "description": "Engineering student specializing in Zero-Trust architectures and infrastructure automation at TotalEnergies."
       }
     </script>
+<script is:inline>
+  const originalTitle = document.title;
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      document.title = "[DISCONNECTED] Léonard-Anton";
+    } else {
+      document.title = originalTitle;
+    }
+  });
 
-    <script is:inline>
-      const originalTitle = document.title;
-      document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-          document.title = "[DISCONNECTED] Léonard-Anton";
-        } else {
-          document.title = originalTitle;
-        }
-      });
-    </script>
-  </head>
-  <body class="bg-[--background]">
-    <TerminalBackground />
-    <slot />
-  </body>
+  // Prevent scrolling and hide content if startup sequence is active
+  if (!sessionStorage.getItem("hasBooted") && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.documentElement.classList.add("is-booting");
+  }
+</script>
+</head>
+<body class="bg-[--background]">
+<StartupSequence client:load />
+<div id="main-content-wrapper" class="transition-opacity duration-1000">
+  <TerminalBackground />
+  <slot />
+</div>
+</body>
 </html>
 
 <style is:global>
+/* Prevent content flash during hydration */
+html.is-booting #main-content-wrapper {
+opacity: 0;
+visibility: hidden;
+}
+
+html.is-booting body {
+overflow: hidden;
+}
+...
+
   @font-face {
     font-family: "Montserrat Variable";
     src: url("/fonts/montserrat-latin-wght-normal.woff2")

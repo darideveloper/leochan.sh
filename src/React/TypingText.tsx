@@ -22,14 +22,33 @@ const TypingText: React.FC<TypingTextProps> = ({
   const [displayedText, setDisplayedText] = useState("");
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [canStart, setCanStart] = useState(false);
 
   useEffect(() => {
+    // Wait until the document is available and check if the boot sequence is active
+    if (typeof document !== "undefined") {
+      const isBooting = document.documentElement.classList.contains("is-booting");
+      if (!isBooting) {
+        setCanStart(true);
+      } else {
+        const handleBootComplete = () => setCanStart(true);
+        window.addEventListener("nekocorp:bootComplete", handleBootComplete);
+        return () => window.removeEventListener("nekocorp:bootComplete", handleBootComplete);
+      }
+    } else {
+      setCanStart(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!canStart) return;
+
     const startTimeout = setTimeout(() => {
       setHasStarted(true);
     }, delay);
 
     return () => clearTimeout(startTimeout);
-  }, [delay]);
+  }, [delay, canStart]);
 
   useEffect(() => {
     if (!hasStarted) return;
