@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TypingText from "./TypingText";
 
 const CategoryIcons = {
   "Développement Web": (
@@ -59,8 +60,8 @@ const SkillsList = () => {
 
   return (
     <div className="text-left pt-3 md:pt-9">
-      <h3 className="text-[var(--white)] text-3xl md:text-4xl font-semibold md:mb-6">
-        Ce que je fais ?
+      <h3 className="text-[var(--white)] text-3xl md:text-4xl font-semibold md:mb-6 min-h-[1.2em]">
+        <TypingText text="Ce que je fais ?" />
       </h3>
       <ul className="space-y-4 mt-4 text-lg">
         {Object.entries(skills).map(([category, items]) => (

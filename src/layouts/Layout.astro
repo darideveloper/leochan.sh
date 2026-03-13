@@ -10,14 +10,14 @@ const { title } = Astro.props;
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>{title} | Développeur Logiciel</title>
+    <title>{title} | Cybersecurity & Infrastructure Engineer</title>
     <meta
       name="description"
-      content="Oscar Andres Hernandez Pineda - Développeur Logiciel créant des expériences numériques interactives et fluides avec un développement frontend de pointe."
+      content="Portfolio of Léonard-Anton, an IT & Cybersecurity student specializing in Zero-Trust architectures, infrastructure automation, and enterprise-grade systems. Explore the Nekocorp homelab and professional automation workflows at TotalEnergies."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="canonical" href="https://oscarhernandez.vercel.app/" />
+    <link rel="canonical" href="https://leonardanton.me/" />
 
     <link
       rel="preload"
@@ -36,21 +36,21 @@ const { title } = Astro.props;
 
     <meta
       property="og:title"
-      content="Oscar Andres Hernandez Pineda | Développeur Logiciel"
+      content="Léonard-Anton | Cyber-Glass Portfolio"
     />
     <meta
       property="og:description"
-      content="Portfolio d'Oscar Andres Hernandez Pineda, Développeur Logiciel spécialisé dans le frontend et les expériences interactives."
+      content="Exploring the intersection of Zero-Trust security and high-performance infrastructure. Witness the Nekocorp ecosystem."
     />
     <meta
       property="og:image"
-      content="https://oscarhernandez.vercel.app/logo-leochan.png"
+      content="https://leonardanton.me/og.image.png"
     />
-    <meta property="og:url" content="https://oscarhernandez.vercel.app" />
+    <meta property="og:url" content="https://leonardanton.me" />
     <meta property="og:type" content="website" />
     <meta
       property="og:site_name"
-      content="Portfolio d'Oscar Andres Hernandez Pineda"
+      content="NEKOCORP // L.A. Portfolio"
     />
 
     <!-- Structured Data (JSON-LD) -->
@@ -58,17 +58,28 @@ const { title } = Astro.props;
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Oscar Andres Hernandez Pineda",
-        "alternateName": "Oscar Hernandez",
-        "url": "https://oscarhernandez.vercel.app",
-        "image": "https://oscarhernandez.vercel.app/logo-leochan.png",
+        "name": "Léonard-Anton",
+        "alternateName": "L.A.",
+        "url": "https://leonardanton.me",
+        "image": "https://leonardanton.me/og.image.png",
         "sameAs": [
-          "https://github.com/gothsec",
-          "https://linkedin.com/in/andresshernandez-eng"
+          "https://github.com/nekocorp",
+          "https://linkedin.com/in/leonardanton-infra"
         ],
-        "jobTitle": "Développeur Logiciel",
-        "description": "Développeur Logiciel créant des expériences numériques interactives et fluides."
+        "jobTitle": "Cybersecurity & Infrastructure Engineer",
+        "description": "Engineering student specializing in Zero-Trust architectures and infrastructure automation at TotalEnergies."
       }
+    </script>
+
+    <script is:inline>
+      const originalTitle = document.title;
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          document.title = "[DISCONNECTED] Léonard-Anton";
+        } else {
+          document.title = originalTitle;
+        }
+      });
     </script>
   </head>
   <body class="bg-[--background] sm:px-28 lg:px-20 px-9">

@@ -4,6 +4,7 @@ import svgl from "../../public/svgl.png";
 import stockin from "../../public/stockin.png";
 import moviesfordevs from "../../public/moviesfordevs.png";
 import velez from "../../public/velez.png";
+import TypingText from "../React/TypingText.tsx";
 
 interface Project {
   title: string;
@@ -50,8 +51,12 @@ const projects: Project[] = [
   class="py-12 border-t border-border-subtle text-[var(--white)]"
 >
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Mon travail</h2>
-    <h3 class="text-4xl md:text-5xl font-medium mb-8">Projets</h3>
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">
+      <TypingText client:visible text="Mon travail" />
+    </h2>
+    <h3 class="text-4xl md:text-5xl font-medium mb-8">
+      <TypingText client:visible text="Projets" />
+    </h3>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {
@@ -72,7 +77,9 @@ const projects: Project[] = [
               </div>
               <div class="flex items-center px-3">
                 <div class="flex-grow">
-                  <h4 class="text-2xl font-semibold">{project.title}</h4>
+                  <h4 class="text-2xl font-semibold min-h-[1.2em]">
+                    <TypingText client:visible text={project.title} />
+                  </h4>
                   <span class="py-1 text-sm text-[var(--white-icon)]">
                     {project.status}
                   </span>

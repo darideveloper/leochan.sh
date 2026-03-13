@@ -1,8 +1,14 @@
+---
+import TypingText from "../React/TypingText.tsx";
+---
+
 <section id="contact" class="w-full py-12 border-t border-border-subtle">
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Discutons-en</h2>
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">
+      <TypingText client:visible text="Discutons-en" />
+    </h2>
     <h3 class="text-4xl md:text-5xl font-medium text-[var(--white)] mb-6">
-      Contact
+      <TypingText client:visible text="Contact" />
     </h3>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="text-[var(--white-icon)]">
