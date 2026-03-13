@@ -1,0 +1,139 @@
+---
+---
+
+<div class="terminal-bg-container">
+  <div class="base-layer"></div>
+  <div class="scanline-layer"></div>
+  <div class="vignette-layer"></div>
+  <div class="interference-layer"></div>
+</div>
+
+<style>
+  .terminal-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    overflow: hidden;
+    background-color: var(--background, #06020C);
+    pointer-events: none;
+  }
+
+  /* Layer 1: Base Image with Ken Burns Effect */
+  .base-layer {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: url("/background.webp");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    will-change: transform;
+    animation: ken-burns 30s ease-in-out infinite alternate;
+  }
+
+  /* Layer 2: CRT Scanlines */
+  .scanline-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.15) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 1;
+  }
+
+  /* Layer 3: Radial Vignette */
+  .vignette-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle,
+      rgba(6, 2, 12, 0) 40%,
+      rgba(6, 2, 12, 0.9) 100%
+    );
+    z-index: 2;
+  }
+
+  /* Layer 4: Signal Interference (Flicker/Jitter) */
+  .interference-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.02);
+    animation: signal-interference 15s steps(1) infinite;
+  }
+
+  /* Ken Burns Animation */
+  @keyframes ken-burns {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    100% {
+      transform: scale(1.1) translate(-2%, -2%);
+    }
+  }
+
+  /* Randomized Signal Interference Keyframes */
+  @keyframes signal-interference {
+    0%, 98% {
+      opacity: 0;
+      transform: translateX(0);
+    }
+    98.5% {
+      opacity: 0.1;
+      transform: translateX(1px);
+    }
+    99% {
+      opacity: 0.05;
+      transform: translateX(-1px);
+    }
+    99.5% {
+      opacity: 0.15;
+      transform: translateX(2px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(0);
+    }
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    .base-layer {
+      animation-duration: 60s; /* Slower animation on mobile */
+      opacity: 0.25; /* More transparent for better contrast on small screens */
+    }
+    
+    .scanline-layer {
+      background-size: 100% 3px; /* Slightly tighter scanlines */
+    }
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .base-layer {
+      animation: none;
+      transform: scale(1.05);
+    }
+    .interference-layer {
+      animation: none;
+    }
+  }
+</style>
