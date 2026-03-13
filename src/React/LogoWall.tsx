@@ -4,7 +4,9 @@ import {
   SiNextdotjs, SiNodedotjs, SiHtml5, SiCss, SiJavascript, 
   SiGit, SiSupabase, SiMysql, SiGnubash, SiDocker, 
   SiAnsible, SiN8N, SiGitlab, SiPython, SiPhp, 
-  SiPostgresql 
+  SiPostgresql, SiAuthentik, SiCisco, SiWazuh, SiRestic, 
+  SiBackblaze, SiKasm, SiDjango, SiRedis, SiCsharp, 
+  SiDotnet, SiServicenow, SiRustdesk, SiEclipsemosquitto 
 } from "react-icons/si";
 import { FaMicrosoft } from "react-icons/fa";
 import { VscAzure, VscAzureDevops } from "react-icons/vsc";
@@ -17,22 +19,28 @@ const technologies = [
   { name: "tailwindcss", icon: <SiTailwindcss /> },
   { name: "next", icon: <SiNextdotjs /> },
   { name: "nodejs", icon: <SiNodedotjs /> },
-  { name: "HTML5", icon: <SiHtml5 /> },
-  { name: "CSS3", icon: <SiCss /> },
   { name: "javaScript", icon: <SiJavascript /> },
+  { name: "python", icon: <SiPython /> },
+  { name: "php", icon: <SiPhp /> },
+  { name: "django", icon: <SiDjango /> },
+  { name: "C#", icon: <SiCsharp /> },
+  { name: ".NET", icon: <SiDotnet /> },
   { name: "git", icon: <SiGit /> },
-  { name: "supabase", icon: <SiSupabase /> },
-  { name: "mysql", icon: <SiMysql /> },
-  { name: "bash", icon: <SiGnubash /> },
   { name: "docker", icon: <SiDocker /> },
   { name: "ansible", icon: <SiAnsible /> },
   { name: "n8n", icon: <SiN8N /> },
-  { name: "gitlab", icon: <SiGitlab /> },
-  { name: "python", icon: <SiPython /> },
-  { name: "php", icon: <SiPhp /> },
-  { name: "postgresql", icon: <SiPostgresql /> },
+  { name: "authentik", icon: <SiAuthentik /> },
+  { name: "cisco", icon: <SiCisco /> },
+  { name: "wazuh", icon: <SiWazuh /> },
   { name: "azure", icon: <VscAzure /> },
   { name: "microsoft", icon: <FaMicrosoft /> },
+  { name: "serviceNow", icon: <SiServicenow /> },
+  { name: "restic", icon: <SiRestic /> },
+  { name: "backblaze", icon: <SiBackblaze /> },
+  { name: "kasm", icon: <SiKasm /> },
+  { name: "redis", icon: <SiRedis /> },
+  { name: "MQTT", icon: <SiEclipsemosquitto /> },
+  { name: "rustDesk", icon: <SiRustdesk /> },
 ];
 
 const LogoWall = () => {
@@ -68,12 +76,12 @@ const LogoWall = () => {
           }
         }
         .animate-scroll {
-          animation: scroll 60s linear infinite;
+          animation: scroll 70s linear infinite;
         }
 
         @media (min-width: 768px) {
           .animate-scroll {
-            animation-duration: 50s;
+            animation-duration: 60s;
           }
         }
       `}</style>

@@ -11,50 +11,43 @@ import {
 } from "react-icons/md";
 
 const CategoryIcons: Record<string, React.ReactNode> = {
-  "Cybersécurité & Défense Réseau": <MdSecurity className="w-6 h-6 text-[var(--sec)] opacity-70" />,
-  "Infrastructure & DevOps": <MdDns className="w-6 h-6 text-[var(--sec)] opacity-70" />,
-  "Développement Logiciel & Systèmes": <MdCode className="w-6 h-6 text-[var(--sec)] opacity-70" />,
-  "Gestion des Services IT (ITSM)": <MdSettingsSuggest className="w-6 h-6 text-[var(--sec)] opacity-70" />,
-  "Matériel & Edge Computing": <MdMemory className="w-6 h-6 text-[var(--sec)] opacity-70" />,
-  "Profil Professionnel & Soft Skills": <MdPersonSearch className="w-6 h-6 text-[var(--sec)] opacity-70" />,
+  "Architecture Sécurité & Zero-Trust": <MdSecurity className="w-6 h-6 text-[var(--sec)] opacity-70" />,
+  "DevOps & Infrastructure as Code (IaC)": <MdDns className="w-6 h-6 text-[var(--sec)] opacity-70" />,
+  "Systèmes & Ingénierie Bas Niveau": <MdMemory className="w-6 h-6 text-[var(--sec)] opacity-70" />,
+  "Développement Logiciel (Full-Stack)": <MdCode className="w-6 h-6 text-[var(--sec)] opacity-70" />,
+  "ITSM & Résilience Entreprise": <MdAutorenew className="w-6 h-6 text-[var(--sec)] opacity-70" />,
 };
 
 const SkillsList = () => {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
   const skills = {
-    "Cybersécurité & Défense Réseau": [
-      "Architecture Zero-Trust : Environnements segmentés 'Moindre Privilège'",
-      "IAM : Authentik, Cisco Duo (MFA), Reverse Proxy Forward Auth",
-      "Sécurité Réseau : SafeLine WAF, VLAN Segregation, Router on a stick",
-      "Détection de menaces : Déploiement Wazuh (SIEM) et Audit logging",
-      "Sécurité Web : Prévention SQLi (PDO), Protection CSRF",
+    "Architecture Sécurité & Zero-Trust": [
+      "Gestion des Identités (IAM) : Authentik, Cisco Duo (MFA), et systèmes RBAC (Role-Based Access Control) personnalisés.",
+      "Défense de Périmètre : SafeLine WAF, Forward Auth Reverse Proxy et filtrage avancé du trafic entrant (Ingress).",
+      "Souveraineté Réseau : Topologies \"Router on a stick\", segmentation VLAN, et politiques de pare-feu (Firewall) strictes.",
+      "Monitoring (SIEM) : Déploiement de Wazuh pour la détection centralisée des menaces et l'audit de sécurité.",
     ],
-    "Infrastructure & DevOps": [
-      "Conteneurisation : Docker & Docker Compose (Avancé)",
-      "Virtualisation : Kasm Workspaces (Environnements éphémères / Bastions)",
-      "Automatisation : Ansible (AAP), n8n, GitLab CI/CD",
-      "Cloud & Hybride : Azure AD, Microsoft Graph API, Sync LDAP",
-      "Sauvegarde & PRA : Restic, Backblaze B2 (S3), Optimisation RTO/RPO",
+    "DevOps & Infrastructure as Code (IaC)": [
+      "Automation & Orchestration : Maîtrise avancée d'Ansible Automation Platform (AAP), n8n, et workflows Python complexes.",
+      "Conteneurisation : Expertise Docker & Docker Compose pour les microservices et la parité d'environnement.",
+      "CI/CD & DevEx : Environnements de développement éphémères via Kasm Workspaces et forges Git auto-hébergées.",
+      "Intégration API : Expérience avec Microsoft Graph API, ServiceNow, et synchronisation LDAP (Hybrid Cloud).",
     ],
-    "Développement Logiciel & Systèmes": [
-      "Backend : Python (Sockets, Multi-threading)",
-      "Gestion de BDD : SMDB (GLPI)",
-      "Prog. Système : Sockets TCP/UDP, Conception de headers de paquets",
+    "Systèmes & Ingénierie Bas Niveau": [
+      "Programmation Réseau : Ingénierie de protocoles applicatifs sur-mesure (Python Sockets), TCP framing et multi-threading.",
+      "Protocoles IoT : Implémentation de MQTT (QoS 0/1/2) et communication temps-réel (WebRTC, LiveKit, Janus).",
+      "Administration Linux : Gestion système durcie (Hardened Linux), compréhension niveau Kernel et scripts Shell/Bash avancés.",
     ],
-    "Gestion des Services IT (ITSM)": [
-      "Framework ITIL : Alignement sur les standards de gestion d'incidents",
-      "Automatisation des flux : Ticketing auto (ServiceNow, GLPI), Self-service",
-      "Gestion des terminaux : RustDesk Enterprise, Provisionnement auto",
+    "Développement Logiciel (Full-Stack)": [
+      "Maîtrise Backend : Python (Django), PHP (Native LAMP), et C#/.NET pour les contextes d'entreprise.",
+      "Bases de Données : PostgreSQL, MySQL, et Redis ; focus sur la sécurité (PDO) et l'intégrité des données.",
+      "Interface & UI : Tailwind CSS pour les interfaces web modernes et Tkinter pour les clients desktop GUI.",
     ],
-    "Matériel & Edge Computing": [
-      "Architecture Bare Metal : Raspberry Pi 5 (NVMe I/O), Noeuds Intel i9",
-      "Optimisation : GPU encoding (RTX 3060), Allocation de noeuds",
-    ],
-    "Profil Professionnel & Soft Skills": [
-      "Stratégie & Ventes Techniques : Transition Dev vers Architecte (GTM)",
-      "Réponse aux Incidents : Récupération systémique critique sous pression",
-      "Apprentissage Continu : Pont entre académie et entreprise",
+    "ITSM & Résilience Entreprise": [
+      "Framework ITIL : Alignement des workflows automatisés sur les standards de gestion d'incidents ITIL.",
+      "Plan de Reprise d'Activité (DR) : Sauvegardes automatisées S3 (Restic & Backblaze B2) avec objectifs RPO/RTO définis.",
+      "Gestion des Services : Intégration de GLPI, ServiceNow et RustDesk Enterprise pour les infrastructures de support globales.",
     ],
   };
 
