@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leochan.sh | Cyber-Glass Terminal</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #06020C;
+            --light-purple: #C92FFF;
+            --deep-violet: #5D15D9;
+            --hot-pink: #FF007F;
+            --text-main: #E0E0E0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'JetBrains Mono', monospace;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        /* --- ANIMATED BACKGROUND --- */
+        .bg-grid {
+            position: fixed;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            animation: panGrid 60s linear infinite;
+        }
+
+        @keyframes panGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            animation: float 25s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            width: 60vw; height: 60vw;
+            background: rgba(201, 47, 255, 0.15);
+            top: -20%; left: -10%;
+        }
+
+        .orb-2 {
+            width: 70vw; height: 70vw;
+            background: rgba(93, 21, 217, 0.2);
+            bottom: -30%; right: -20%;
+            animation-delay: -12s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(150px, 200px) scale(1.2); }
+        }
+
+        /* --- TYPOGRAPHY --- */
+        .vcr-text {
+            font-family: 'VT323', monospace;
+            text-transform: uppercase;
+            text-shadow: 2px 0px 1px rgba(201, 47, 255, 0.6), -2px 0px 1px rgba(0, 255, 255, 0.4);
+            letter-spacing: 2px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 14px;
+            height: 1.1em;
+            background-color: var(--hot-pink);
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+            box-shadow: 0 0 12px var(--hot-pink);
+            margin-left: 5px;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* --- EXTREME GLASSMORPHISM PANEL + SPOTLIGHT --- */
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(25, 15, 40, 0.4), rgba(10, 5, 20, 0.2));
+            backdrop-filter: blur(30px) saturate(120%);
+            -webkit-backdrop-filter: blur(30px) saturate(120%);
+            
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            
+            border-radius: 20px;
+            padding: 2.5rem;
+            
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5), 
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 0 20px rgba(201, 47, 255, 0.1);
+            
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+        }
+
+        /* The Flashlight/Spotlight Effect */
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Uses CSS variables updated by JS */
+            background: radial-gradient(
+                600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(201, 47, 255, 0.15), 
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none; /* Allows clicking through the glow */
+            z-index: 0;
+        }
+
+        .glass-panel:hover::before {
+            opacity: 1;
+        }
+
+        /* Ensure content stays above the flashlight glow */
+        .glass-panel > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 0, 127, 0.4);
+            box-shadow: 
+                0 30px 50px rgba(0, 0, 0, 0.7), 
+                inset 0 0 30px rgba(255, 0, 127, 0.1);
+        }
+
+
+        /* --- BOOT SEQUENCE --- */
+        #boot-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bg-dark);
+            z-index: 9999;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        #boot-logs {
+            color: var(--light-purple);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-shadow: 0 0 8px rgba(201, 47, 255, 0.6);
+        }
+
+        /* --- MAIN WRAPPER --- */
+        #main-content {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1.5s ease-in;
+        }
+
+        #main-content.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* --- HERO ZONE --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .hero-card {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            animation: floatCard 6s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-card h1 {
+            font-size: 4rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .hero-card p {
+            font-size: 1.2rem;
+            color: #d0d0d0;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            color: var(--hot-pink);
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 2rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        /* --- DASHBOARD ZONE --- */
+        #dashboard {
+            min-height: 100vh;
+            padding: 4rem 2.5rem;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 2.5rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        header h2 { font-size: 2.5rem; color: #fff; }
+        .tagline { color: var(--hot-pink); font-size: 1.2rem; animation: pulse 2s infinite; }
+
+        aside { display: flex; flex-direction: column; gap: 2rem; }
+        main { display: flex; flex-direction: column; gap: 2rem; }
+
+        .project-card {
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--light-purple);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            transition: background 0.3s, transform 0.2s;
+            position: relative; /* So the z-index works */
+            z-index: 2;
+        }
+
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateX(5px);
+        }
+
+        .project-card h3 { color: var(--light-purple); margin-bottom: 0.8rem; font-size: 1.5rem; }
+        .project-card p { font-size: 1rem; color: #d0d0d0; margin-bottom: 0.5rem; line-height: 1.6; }
+
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+    </style>
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <div id="boot-screen">
+        <div id="boot-logs"></div>
+        <div class="cursor" style="background-color: var(--light-purple); box-shadow: none;"></div>
+    </div>
+
+    <div id="main-content">
+        
+        <section id="hero">
+            <div class="glass-panel hero-card">
+                <h1 class="vcr-text">Hi, my name is Leonard.<span class="cursor"></span></h1>
+                <p>Welcome to <strong>NEKOCORP_OS</strong>. <br>I am an IT Engineering Student specializing in Cybersecurity, Networks, and Automation.</p>
+                <div style="color: var(--deep-violet); font-weight: bold; font-size: 1.1rem; margin-top: 1rem;">
+                    [ STATUS: NO SPIES ALLOWED ]
+                </div>
+            </div>
+            
+            <div class="vcr-text scroll-indicator">
+                SCROLL TO ACCESS SYSTEM
+            </div>
+        </section>
+
+        <section id="dashboard">
+            <header class="glass-panel" style="padding: 1.5rem 2.5rem;">
+                <div>
+                    <h2 class="vcr-text">SYSTEM_DASHBOARD</h2>
+                    <p style="color: #aaa; margin-top: 0.5rem;">[ Connected via: <span style="color: var(--light-purple);">secure_tunnel</span> ]</p>
+                </div>
+                <div class="vcr-text tagline">
+                    [ ACTIVE ]
+                </div>
+            </header>
+
+            <aside>
+                <div class="glass-panel">
+                    <h3 class="vcr-text" style="font-size: 1.8rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">> SYS_RESOURCES</h3>
+                    <ul style="list-style: none; font-size: 1rem; line-height: 2.2; color: #ddd;">
+                        <li><span style="color: var(--light-purple);">[+]</span> Ansible & Docker</li>
+                        <li><span style="color: var(--light-purple);">[+]</span> Python & Bash</li>
+                        <li><span style="color: var(--light-purple);">[+]</span> Cisco & UniFi</li>
+                        <li><span style="color: var(--light-purple);">[+]</span> Proxmox / KVM</li>
+                        <li><span style="color: var(--light-purple);">[+]</span> SSO & IAM (Authentik)</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main>
+                <div class="glass-panel">
+                    <h3 class="vcr-text" style="font-size: 2.2rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">> ACTIVE_PROCESSES</h3>
+                    
+                    <div class="project-card">
+                        <h3 class="vcr-text">TotalEnergies (TGITS) - Automation</h3>
+                        <p style="color: var(--hot-pink); margin-bottom: 0.8rem;">[ Role: IT Process Automation Engineer ]</p>
+                        <p>Automated large-scale infrastructure and service catalog requests using Ansible and Python. Evaluated AI code-generation tools (GitHub Copilot, RedHat Lightspeed) to optimize engineering workflows.</p>
+                    </div>
+
+                    <div class="project-card" style="border-left-color: var(--deep-violet);">
+                        <h3 class="vcr-text">Homelab "Nekocorp"</h3>
+                        <p style="color: var(--deep-violet); margin-bottom: 0.8rem;">[ Role: Architect & SysAdmin ]</p>
+                        <p>Designed a highly segmented "Router on a stick" network with strict firewall rules, Reverse Proxy (LB/WAF), Bastion host administration, and automated GDPR compliance workflows via n8n.</p>
+                    </div>
+
+                    <div class="project-card" style="border-left-color: var(--hot-pink);">
+                        <h3 class="vcr-text">Ticketarr (Incident Mgmt)</h3>
+                        <p style="color: var(--hot-pink); margin-bottom: 0.8rem;">[ Role: Lead Developer ]</p>
+                        <p>Built a 100% Dockerized Python/Django application. Provisioned ephemeral development environments for the team using Kasm Workspaces.</p>
+                    </div>
+                </div>
+            </main>
+        </section>
+    </div>
+
+    <script>
+        // --- FLASHLIGHT EFFECT TRACKING ---
+        document.querySelectorAll('.glass-panel').forEach(panel => {
+            panel.addEventListener('mousemove', e => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Update CSS variables for the radial gradient center
+                panel.style.setProperty('--mouse-x', `${x}px`);
+                panel.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // --- BOOT SEQUENCE LOGIC ---
+        const logs = [
+            "Initializing leochan.sh kernel...",
+            "Loading NEKOCORP modules... [OK]",
+            "Mounting virtual filesystems... [OK]",
+            "Starting Network Security Manager...",
+            "Applying Zero-Trust policies... [DONE]",
+            "Checking for unauthorized access...",
+            "VERIFIED: No spies allowed.",
+            "Handing over control to user..."
+        ];
+
+        const logContainer = document.getElementById('boot-logs');
+        const bootScreen = document.getElementById('boot-screen');
+        const mainContent = document.getElementById('main-content');
+        
+        let delay = 0;
+
+        window.scrollTo(0, 0);
+
+        logs.forEach((log, index) => {
+            setTimeout(() => {
+                const p = document.createElement('p');
+                p.textContent = `[ ${(Math.random() * 2).toFixed(4)} ] ${log}`;
+                logContainer.appendChild(p);
+                
+                if (index === logs.length - 1) {
+                    setTimeout(() => {
+                        bootScreen.style.transform = 'translateY(-100%)';
+                        bootScreen.style.opacity = '0';
+                        
+                        setTimeout(() => {
+                            bootScreen.style.display = 'none';
+                            mainContent.classList.add('active');
+                            document.body.style.overflowY = 'auto';
+                        }, 800);
+                    }, 1000);
+                }
+            }, delay);
+            delay += Math.random() * 250 + 100;
+        });
+    </script>
+</body>
+</html>
