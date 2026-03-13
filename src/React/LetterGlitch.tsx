@@ -288,7 +288,6 @@ const LetterGlitch = ({
       )}
     </div>
   );
-
 };
 
 export default LetterGlitch;
