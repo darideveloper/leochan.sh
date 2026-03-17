@@ -12,25 +12,26 @@ import { VscAzure, VscAzureDevops } from "react-icons/vsc";
 import { TbBrandCSharp } from "react-icons/tb";
 
 const technologies = [
-  { name: "astro", icon: <SiAstro /> },
   { name: "vue", icon: <SiVuedotjs /> },
   { name: "react", icon: <SiReact /> },
-  { name: "typeScript", icon: <SiTypescript /> },
   { name: "tailwindcss", icon: <SiTailwindcss /> },
-  { name: "next", icon: <SiNextdotjs /> },
   { name: "nodejs", icon: <SiNodedotjs /> },
   { name: "javaScript", icon: <SiJavascript /> },
   { name: "python", icon: <SiPython /> },
   { name: "php", icon: <SiPhp /> },
   { name: "django", icon: <SiDjango /> },
-  { name: "C#", icon: <TbBrandCSharp /> },
-  { name: ".NET", icon: <SiDotnet /> },
   { name: "git", icon: <SiGit /> },
+  { name: "Gitea", icon: "https://download.logo.wine/logo/Gitea/Gitea-Logo.wine.png" },
   { name: "docker", icon: <SiDocker /> },
   { name: "ansible", icon: <SiAnsible /> },
   { name: "n8n", icon: <SiN8N /> },
   { name: "authentik", icon: <SiAuthentik /> },
-  { name: "cisco", icon: <SiCisco /> },
+  { name: "Cisco Duo", icon: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Duo_Logo_Green.svg" },
+  { name: "Kasm", icon: "https://avatars.githubusercontent.com/u/44181855?s=280&v=4" },
+  { name: "Cloudflare", icon: "https://raw.githubusercontent.com/lobehub/lobeicons/refs/heads/master/packages/static-png/dark/cloudflare-color.png" },
+  { name: "SafeLine", icon: "https://safepoint.cloud/_next/static/media/logo.11697169.svg" },
+  { name: "GLPI", icon: "https://avatars.githubusercontent.com/u/13361707?s=280&v=4" },
+  { name: "Wireshark", icon: "https://www.wireshark.org/_astro/wireshark-logobig.CkRjSOaC_2eT4Ah.png" },
   { name: "azure", icon: <VscAzure /> },
   { name: "microsoft", icon: <FaMicrosoft /> },
   { name: "serviceNow", icon: <SiNow /> },
@@ -54,7 +55,11 @@ const LogoWall = () => {
             aria-hidden={index >= technologies.length ? "true" : "false"}
           >
             <div className="text-3xl transition-transform group-hover:scale-110 opacity-60 text-[var(--white-icon)]">
-              {tech.icon}
+              {typeof tech.icon === "string" ? (
+                <img src={tech.icon} alt={tech.name} className="size-8 object-contain brightness-0 invert opacity-60 group-hover:opacity-100" />
+              ) : (
+                tech.icon
+              )}
             </div>
             <span className="text-lg font-medium text-[var(--white-icon)] whitespace-nowrap font-mono">
               {tech.name.charAt(0).toUpperCase() + tech.name.slice(1)}

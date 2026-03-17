@@ -12,43 +12,43 @@ import {
 } from "react-icons/md";
 
 const CategoryIcons: Record<string, React.ReactNode> = {
-  "Architecture Sécurité & Zero-Trust": <MdSecurity className="w-6 h-6 text-[var(--sec)] opacity-70" />,
+  "Security Architecture & Zero-Trust": <MdSecurity className="w-6 h-6 text-[var(--sec)] opacity-70" />,
   "DevOps & Infrastructure as Code (IaC)": <MdDns className="w-6 h-6 text-[var(--sec)] opacity-70" />,
-  "Systèmes & Ingénierie Bas Niveau": <MdMemory className="w-6 h-6 text-[var(--sec)] opacity-70" />,
-  "Développement Logiciel (Full-Stack)": <MdCode className="w-6 h-6 text-[var(--sec)] opacity-70" />,
-  "ITSM & Résilience Entreprise": <MdAutorenew className="w-6 h-6 text-[var(--sec)] opacity-70" />,
+  "Systems & Low-Level Engineering": <MdMemory className="w-6 h-6 text-[var(--sec)] opacity-70" />,
+  "Software Development (Full-Stack)": <MdCode className="w-6 h-6 text-[var(--sec)] opacity-70" />,
+  "ITSM & Business Resilience": <MdAutorenew className="w-6 h-6 text-[var(--sec)] opacity-70" />,
 };
 
 const SkillsList = () => {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
   const skills = {
-    "Architecture Sécurité & Zero-Trust": [
-      "Gestion des Identités (IAM) : Authentik, Cisco Duo (MFA), et systèmes RBAC (Role-Based Access Control) personnalisés.",
-      "Défense de Périmètre : SafeLine WAF, Forward Auth Reverse Proxy et filtrage avancé du trafic entrant (Ingress).",
-      "Souveraineté Réseau : Topologies \"Router on a stick\", segmentation VLAN, et politiques de pare-feu (Firewall) strictes.",
-      "Monitoring (SIEM) : Déploiement de Wazuh pour la détection centralisée des menaces et l'audit de sécurité.",
+    "Security Architecture & Zero-Trust": [
+      "Identity Management (IAM): Authentik, Cisco Duo (MFA), and custom Role-Based Access Control (RBAC) systems.",
+      "Perimeter Defense: SafeLine WAF, Forward Auth Reverse Proxy, and advanced ingress traffic filtering.",
+      "Network Sovereignty: “Router on a stick” topologies, VLAN segmentation, and strict firewall policies.",
+      "Monitoring (SIEM): Deployment of Wazuh for centralized threat detection and security auditing.",
     ],
     "DevOps & Infrastructure as Code (IaC)": [
-      "Automation & Orchestration : Maîtrise avancée d'Ansible Automation Platform (AAP), n8n, et workflows Python complexes.",
-      "Conteneurisation : Expertise Docker & Docker Compose pour les microservices et la parité d'environnement.",
-      "CI/CD & DevEx : Environnements de développement éphémères via Kasm Workspaces et forges Git auto-hébergées.",
-      "Intégration API : Expérience avec Microsoft Graph API, ServiceNow, et synchronisation LDAP (Hybrid Cloud).",
+      "Automation & Orchestration: Advanced proficiency in Ansible Automation Platform (AAP), n8n, and complex Python workflows.",
+      "Containerization: Expertise in Docker & Docker Compose for microservices and environment parity.",
+      "CI/CD & DevEx: Ephemeral development environments via Kasm Workspaces and self-hosted Git forges.",
+      "API Integration: Experience with Microsoft Graph API, ServiceNow, GLPI and LDAP synchronization (Hybrid Cloud).",
     ],
-    "Systèmes & Ingénierie Bas Niveau": [
-      "Programmation Réseau : Ingénierie de protocoles applicatifs sur-mesure (Python Sockets), TCP framing et multi-threading.",
-      "Protocoles IoT : Implémentation de MQTT (QoS 0/1/2) et communication temps-réel (WebRTC, LiveKit, Janus).",
-      "Administration Linux : Gestion système durcie (Hardened Linux), compréhension niveau Kernel et scripts Shell/Bash avancés.",
+    "Systems & Low-Level Engineering": [
+      "Network Programming: Custom application protocol engineering (Python Sockets), TCP framing, and multithreading.",
+      "IoT Protocols: Implementation of MQTT (QoS 0/1/2) and real-time communication (WebRTC, LiveKit, Janus).",
+      "Linux Administration: Hardened Linux system management, kernel-level understanding, and advanced Shell/Bash scripting.",
     ],
-    "Développement Logiciel (Full-Stack)": [
-      "Maîtrise Backend : Python (Django), PHP (Native LAMP), et C#/.NET pour les contextes d'entreprise.",
-      "Bases de Données : PostgreSQL, MySQL, et Redis ; focus sur la sécurité (PDO) et l'intégrité des données.",
-      "Interface & UI : Tailwind CSS pour les interfaces web modernes et Tkinter pour les clients desktop GUI.",
+    "Software Development (Full-Stack)": [
+      "Backend expertise: Python (Django), PHP (native LAMP).",
+      "Databases: PostgreSQL, MySQL, and Redis; with a focus on security (PDO) and data integrity.",
+      "Interface & UI: Tailwind CSS for modern web interfaces and Tkinter for desktop GUI clients.",
     ],
-    "ITSM & Résilience Entreprise": [
-      "Framework ITIL : Alignement des workflows automatisés sur les standards de gestion d'incidents ITIL.",
-      "Plan de Reprise d'Activité (DR) : Sauvegardes automatisées S3 (Restic & Backblaze B2) avec objectifs RPO/RTO définis.",
-      "Gestion des Services : Intégration de GLPI, ServiceNow et RustDesk Enterprise pour les infrastructures de support globales.",
+    "ITSM & Business Resilience": [
+      "ITIL Framework: Alignment of automated workflows with ITIL incident management standards.",
+      "Disaster Recovery (DR): Automated S3 backups (Restic & Backblaze B2) with defined RPO/RTO objectives.",
+      "Service Management: Integration of GLPI, ServiceNow and RustDesk Enterprise for global support infrastructures.",
     ],
   };
 
@@ -66,7 +66,7 @@ const SkillsList = () => {
   return (
     <div className="flex flex-col items-center lg:items-start text-center lg:text-left pt-3 md:pt-9">
       <h3 className="text-[var(--white)] text-3xl md:text-4xl font-semibold md:mb-6 min-h-[1.2em]">
-        <TypingText text="Ce que je fais ?" />
+        <TypingText text="My skills" />
       </h3>
       <ul className="flex flex-col items-center lg:items-start space-y-4 mt-4 text-lg w-full">
         {Object.entries(skills).map(([category, items], index) => {

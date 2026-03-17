@@ -20,28 +20,28 @@ const projects: Project[] = [
     image: moviesfordevs as ImageMetadata,
     link: "https://github.com/nekocorp/MoviesForDevs",
     preview: "https://movies-for-devs.vercel.app",
-    status: "Déployé",
+    status: "Deployed",
   },
   {
     title: "StockIn",
     image: stockin as ImageMetadata,
     link: "https://github.com/nekocorp/stockin-demo",
     preview: "https://stockin-demo.vercel.app",
-    status: "En développement",
+    status: "In development",
   },
   {
     title: "Svgl.app",
     image: svgl as ImageMetadata,
     link: "https://github.com/pheralb/svgl",
     preview: "https://svgl.app",
-    status: "Contributeur",
+    status: "Contributor",
   },
   {
     title: "Rifas Velez Web",
     image: velez as ImageMetadata,
     link: "https://github.com/Buga-Software/rifasvelez-web",
     preview: "https://www.rifasvelez.com",
-    status: "Déployé",
+    status: "Deployed",
   },
 ];
 ---
@@ -88,7 +88,7 @@ const projects: Project[] = [
                   <a
                     target="_blank"
                     href={project.link}
-                    aria-label="GitHub"
+                    aria-label="Gitea"
                     class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white border border-1 border-white/10 p-3 rounded-xl cyber-glass"
                   >
                     <svg
@@ -103,7 +103,7 @@ const projects: Project[] = [
                   <a
                     target="_blank"
                     href={project.preview}
-                    aria-label="Aperçu"
+                    aria-label="Preview"
                     class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white border border-1 border-white/10 p-3 rounded-xl cyber-glass"
                   >
                     <svg
@@ -124,8 +124,8 @@ const projects: Project[] = [
     </div>
     <a
       target="_blank"
-      href="https://github.com/nekocorp?tab=repositories"
-      aria-label="GitHub"
+      href="https://git.nekocorp.fr/leo?tab=repositories"
+      aria-label="Gitea"
       class="w-full flex items-center justify-center gap-2 mt-9 text-[var(--white-icon)] hover:text-white p-3 rounded-full cyber-glass hover:scale-105"
     >
       <span class="md:text-lg text-md font-vcr">cat ./more_projects.log</span>

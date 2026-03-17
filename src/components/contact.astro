@@ -13,10 +13,10 @@ import TypingText from "../React/TypingText.tsx";
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="text-[var(--white-icon)]">
         <p class="mb-4">
-          Vous avez une question, une proposition d'infrastructure ou un audit de sécurité en tête ? N'hésitez pas à me contacter.
+          Have a question, an infrastructure proposal, or a security audit in mind? Feel free to reach out.
         </p>
         <div class="flex items-center gap-2 font-mono">
-          <span>Lieu :</span>
+          <span>Location:</span>
           <span class="text-[var(--white)]">France / TotalEnergies TGITS</span>
         </div>
       </div>
@@ -32,8 +32,8 @@ import TypingText from "../React/TypingText.tsx";
             <input
               type="text"
               name="from_name"
-              placeholder="Nom"
-              aria-label="Nom"
+              placeholder="Name"
+              aria-label="Name"
               required
               class="px-4 py-2 bg-transparent w-full h-full text-[var(--white)] border-none outline-none"
             />
@@ -42,8 +42,8 @@ import TypingText from "../React/TypingText.tsx";
             <input
               type="email"
               name="reply_to"
-              placeholder="E-mail"
-              aria-label="E-mail"
+              placeholder="Email"
+              aria-label="Email"
               required
               class="px-4 py-2 bg-transparent w-full h-full text-[var(--white)] border-none outline-none"
             />
@@ -62,14 +62,14 @@ import TypingText from "../React/TypingText.tsx";
             type="submit"
             class="px-4 py-2 bg-[var(--white-icon-tr)] text-[var(--white)] rounded-lg opacity-60 transition-opacity border border-[var(--white-icon-tr)] hover:opacity-100 hover:bg-[var(--white-icon-tr)] font-vcr"
           >
-            ssh contact@nekocorp.me
+            ssh leonard+leochan.sh@nekocorp.fr
           </button>
         </form>
         <div
           id="form-message"
           class="hidden justify-center items-center mt-4 text-[var(--white)] text-lg"
         >
-          ✅ Merci pour votre message !
+          ✅ Thank you for your message!
         </div>
       </div>
     </div>
@@ -97,11 +97,11 @@ import TypingText from "../React/TypingText.tsx";
       } else {
         const data = await response.json();
         console.error("Error response:", data);
-        alert("Un problème est survenu lors de l'envoi de votre message.");
+        alert("A problem occurred while sending your message.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Un problème est survenu lors de l'envoi de votre message.");
+      alert("A problem occurred while sending your message.");
     }
   });
 </script>
