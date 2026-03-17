@@ -137,7 +137,7 @@ const StartupSequence: React.FC = () => {
 
         {phase === "welcome" && (
           <div className="flex-1 flex flex-col items-center justify-center animate-in zoom-in fade-in duration-1000 ease-out">
-            <h1 className="text-4xl md:text-7xl font-bold tracking-[0.1em] text-white drop-shadow-[0_0_20px_var(--primary)]">
+            <h1 className="text-3xl md:text-7xl font-bold tracking-[0.1em] text-white drop-shadow-[0_0_20px_var(--primary)]">
               NEKOCORP_OS
             </h1>
             <p className="mt-4 text-[var(--primary)] text-lg md:text-xl tracking-[0.2em] animate-pulse">
