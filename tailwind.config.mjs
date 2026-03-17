@@ -16,6 +16,8 @@ export default {
       },
       fontFamily: {
         vcr: ["VCR OSD MONO", "monospace"],
+        mono: ["JetBrains Mono", "Courier New", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "monospace"],
+        sans: ["Montserrat Variable", "-apple-system", "system-ui", "sans-serif"],
       },
       keyframes: {
         scaleAnim: {

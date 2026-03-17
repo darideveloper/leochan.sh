@@ -56,7 +56,7 @@ const LogoWall = () => {
             <div className="text-3xl transition-transform group-hover:scale-110 opacity-60 text-[var(--white-icon)]">
               {tech.icon}
             </div>
-            <span className="text-lg font-medium text-[var(--white-icon)] whitespace-nowrap">
+            <span className="text-lg font-medium text-[var(--white-icon)] whitespace-nowrap font-mono">
               {tech.name.charAt(0).toUpperCase() + tech.name.slice(1)}
             </span>
           </div>
