@@ -5,6 +5,7 @@ import Footer from "@/components/footer.astro";
 import { getProjects } from "@/data/projects";
 import { Image } from "astro:assets";
 import TypingText from "@/React/TypingText.tsx";
+import { marked } from "marked";
 
 export async function getStaticPaths() {
   const projects = getProjects();
@@ -15,6 +16,7 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const contentHtml = await marked.parse(project.content);
 ---
 
 <Layout title={project.title}>
@@ -59,20 +61,26 @@ const { project } = Astro.props;
 
       <!-- Main Content -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <!-- Showcase Image -->
+        <!-- Markdown Content Area -->
         <div class="lg:col-span-2 space-y-8">
-          <div class="cyber-glass rounded-3xl overflow-hidden border border-white/10 group shadow-2xl shadow-purple-950/20">
-             <Image 
-                src={project.image} 
-                alt={project.title} 
-                class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-1000"
-              />
+          <div class="cyber-glass p-6 md:p-10 rounded-3xl border border-white/10 shadow-2xl shadow-purple-950/20">
+            <div class="mb-10 rounded-2xl overflow-hidden border border-white/5 group">
+                <Image 
+                   src={project.image} 
+                   alt={project.title} 
+                   class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-1000"
+                 />
+             </div>
+             
+             <article class="prose-container">
+               <div class="prose prose-invert prose-mono max-w-none" set:html={contentHtml} />
+             </article>
           </div>
         </div>
 
         <!-- Sidebar Details -->
         <div class="space-y-8">
-          <div class="cyber-glass p-8 rounded-3xl border border-white/10 h-full flex flex-col">
+          <div class="cyber-glass p-8 rounded-3xl border border-white/10 h-full flex flex-col sticky top-32">
             <h2 class="text-xl font-vcr mb-6 text-[var(--sec)] shiny-sec tracking-widest">[ LOG_DETAILS ]</h2>
             <p class="text-[var(--white-icon)] leading-relaxed mb-8 font-mono text-sm md:text-base flex-grow">
               {project.fullDescription}
@@ -108,8 +116,64 @@ const { project } = Astro.props;
   <Footer />
 </Layout>
 
-<style>
+<style is:global>
   .shiny-sec {
     text-shadow: 0 0 10px var(--sec);
+  }
+
+  .prose-container {
+    color: var(--foreground);
+  }
+
+  /* Custom Markdown Styling */
+  .prose-container h1, .prose-container h2, .prose-container h3 {
+    font-family: "VCR OSD MONO", monospace !important;
+    color: var(--sec) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .prose-container h1 { font-size: 1.875rem !important; }
+  .prose-container h2 { font-size: 1.5rem !important; }
+  .prose-container h3 { font-size: 1.25rem !important; }
+
+  .prose-container p, .prose-container li {
+    font-family: "JetBrains Mono", monospace !important;
+    color: var(--muted) !important;
+    line-height: 1.7 !important;
+  }
+
+  .prose-container strong {
+    color: var(--foreground) !important;
+    font-weight: 600;
+  }
+
+  .prose-container blockquote {
+    border-left: 4px solid var(--primary) !important;
+    background: rgba(201, 47, 255, 0.05);
+    padding: 1rem 1.5rem !important;
+    font-style: italic;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  .prose-container ul {
+    list-style-type: none !important;
+    padding-left: 0 !important;
+  }
+
+  .prose-container ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-container ul li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
   }
 </style>

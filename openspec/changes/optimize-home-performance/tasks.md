@@ -7,8 +7,8 @@
 - [x] In `src/components/projects.astro` (if applicable): Change any heavy React component directives from `client:load` to `client:visible`.
 
 ## Phase 2: Navigation Scroll Reflow Fix
-- [ ] In `src/components/nav.astro`: Update the `.scrolling` CSS logic and JavaScript `updateNav()` function.
-- [ ] In `src/components/nav.astro`: Instead of direct `style.setProperty("width", ...)` modifications on scroll, implement a CSS-driven `max-width` transition or a hardware-accelerated transform approach to prevent layout thrashing.
+- [x] In `src/components/nav.astro`: Update the `.scrolling` CSS logic and JavaScript `updateNav()` function.
+- [x] In `src/components/nav.astro`: Instead of direct `style.setProperty("width", ...)` modifications on scroll, implement a CSS-driven `max-width` transition or a hardware-accelerated transform approach to prevent layout thrashing.
 
 ## Phase 3: LetterGlitch Canvas Optimization
 - [ ] In `src/React/LetterGlitch.tsx`: Increase `fontSize`, `charWidth`, and `charHeight` to reduce the overall grid density (e.g., from 16 to 24 or 32) and lower the total number of characters processed per frame.

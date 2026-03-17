@@ -67,13 +67,18 @@ const navItems: NavItem[] = [
   nav {
     transform: translateX(-50%);
     background-color: var(--background);
+    width: 80%;
+    max-width: 1200px;
     transition:
+      width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
       background-color 0.3s ease,
       border-radius 0.3s ease,
       border-color 0.3s ease;
+    will-change: width, background-color;
   }
 
   nav.scrolling {
+    width: 640px;
     background-color: rgba(20, 16, 26, 0.4);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
@@ -98,6 +103,7 @@ const navItems: NavItem[] = [
   @media (max-width: 767px) {
     nav {
       width: 100% !important;
+      max-width: 100% !important;
       transform: translateX(-50%);
       bottom: 0;
       left: 50%;
@@ -107,6 +113,7 @@ const navItems: NavItem[] = [
     }
 
     nav.scrolling {
+      width: 100% !important;
       border-radius: 1rem 1rem 0 0;
       background-color: var(--surface);
     }
@@ -119,27 +126,18 @@ const navItems: NavItem[] = [
 
 <script>
   const nav = document.getElementById("main-nav");
-  const maxScroll = 1000;
+  const navLinks = document.querySelectorAll("nav a[href*='#']");
   let rafId: number | null = null;
 
   function updateNav() {
-    const navLinks = document.querySelectorAll("nav a[href*='#']");
-    if (window.scrollY > 0) {
-      nav?.classList.add("scrolling");
-
-      const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
-      const easeProgress = 1 - Math.pow(1 - scrollProgress, 4);
-
-      const minWidth = 640;
-      const maxWidth = window.innerWidth * 0.8;
-      const currentWidth = maxWidth - (maxWidth - minWidth) * easeProgress;
-
-      if (window.innerWidth >= 768) {
-        nav?.style.setProperty("width", `${currentWidth}px`);
+    if (window.scrollY > 50) {
+      if (!nav?.classList.contains("scrolling")) {
+        nav?.classList.add("scrolling");
       }
     } else {
-      nav?.classList.remove("scrolling");
-      nav?.style.setProperty("width", "80%");
+      if (nav?.classList.contains("scrolling")) {
+        nav?.classList.remove("scrolling");
+      }
 
       if (window.location.pathname === "/") {
         // Explicitly highlight WHOAMI when at top
