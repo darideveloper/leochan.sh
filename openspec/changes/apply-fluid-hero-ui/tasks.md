@@ -1,0 +1,6 @@
+- [x] Create a localized `FluidLayer` (div with animated radial gradients) within `src/components/home.astro` to add fluid blobs behind the hero content without modifying `TerminalBackground.astro`.
+- [x] Update Typography classes in `src/components/home.astro` to make the main title massive (`text-7xl` or `8xl`, `font-black`) and stack the text elements vertically.
+- [x] Apply the existing project `.cyber-glass` class, along with padding and border radius utility classes, to the wrappers of `<LogoWall />`, `<SkillsList />`, and the image in `src/components/home.astro`.
+- [x] Update layout utilities in `src/components/home.astro` to reposition the newly styled "stat cards" to cluster in the bottom right, ensuring they don't overlap critical text on mobile.
+- [x] Verify that the `TerminalBackground.astro` CRT/scanline effects are still visible and consistent across other site sections (About, Projects, etc.).
+- [x] Test layout responsiveness on mobile to ensure the massive title scales down correctly and "stat cards" stack or reposition functionally.
