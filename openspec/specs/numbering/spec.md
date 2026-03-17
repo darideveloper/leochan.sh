@@ -1,7 +1,8 @@
-# numbering Specification Delta
+# numbering Specification
 
-## MODIFIED Requirements
-
+## Purpose
+TBD - created by archiving change fix-heading-hierarchy-and-numbering. Update Purpose after archive.
+## Requirements
 ### Requirement: Consistent Numeric Log Header Format
 All main sections on the homepage MUST follow a standardized two-line header format using the `TypingText` component.
 - **Line 1 (`h2`):** A small, "terminal-log" style label in the `[ ACTION ]` format.
@@ -37,3 +38,4 @@ Main section titles MUST be consistently rendered as `<h3>` to avoid skipping he
 - **GIVEN** any main homepage section (Home, CV, Projects, Contact).
 - **WHEN** its primary title is rendered.
 - **THEN** it MUST be an `<h3>`.
+

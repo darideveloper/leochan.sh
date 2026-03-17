@@ -1,7 +1,8 @@
-# headings Specification Delta
+# headings Specification
 
-## MODIFIED Requirements
-
+## Purpose
+TBD - created by archiving change fix-heading-hierarchy-and-numbering. Update Purpose after archive.
+## Requirements
 ### Requirement: Single H1 Tag per Page
 The `StartupSequence` component MUST use an `<h2>` for its primary "NEKOCORP_OS" text to ensure only the main site title on the homepage (`Home.astro`) uses an `<h1>`.
 - **Constraint:** The visual appearance (font size, weight, color, etc.) of the "NEKOCORP_OS" text MUST remain identical to its current state.
@@ -36,3 +37,4 @@ When the `CV` section title is rendered as an `<h3>`, the internal sub-headings 
 - **GIVEN** the CV section is rendered with an `<h3>` title.
 - **THEN** all immediate children headers (EXPERIENCE, EDUCATION, etc.) MUST be `<h4>`.
 - **AND** project/workplace names MUST be `<h5>`.
+

@@ -1,7 +1,8 @@
 # ui-glassmorphism Specification
 
 ## Purpose
-TBD - created by archiving change apply-glassmorphism-effects. Update Purpose after archive.
+Define the visual standards for frosted-glass (glassmorphism) effects across the application, ensuring consistency in transparency, blur, and layering.
+
 ## Requirements
 ### Requirement: Implement Frosted-Glass Effect (Glassmorphism)
 All primary interactive containers MUST have a frosted-glass aesthetic. This SHALL be achieved through semi-transparent backgrounds and `backdrop-filter: blur()`.
@@ -30,3 +31,8 @@ All primary interactive containers MUST have a frosted-glass aesthetic. This SHA
 -   **Then** it MUST maintain its `backdrop-blur-xl` properties.
 -   **Then** the `scrolling` state MUST use `bg-surface` for consistent glass aesthetic.
 
+#### Scenario: Apply blur to Hero Stat Cards (home.astro)
+-   **Given** the wrappers for the `SkillsList`, `LogoWall`, and NEKOCORP image in the hero section.
+-   **When** rendered.
+-   **Then** they MUST have the `.cyber-glass` class applied.
+-   **AND** they MUST feature rounded corners and padding to simulate a floating card.
