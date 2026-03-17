@@ -1,0 +1,324 @@
+---
+import TypingText from "@/React/TypingText";
+
+const technicalSkills = [
+  {
+    category: "SYSTEMS & DEVSECOPS",
+    skills: [
+      { name: "Virtualization/Containers", details: "Docker (Standalone, Portainer), KVM, Kasm Workspaces (Zero Trust)" },
+      { name: "Automation", details: "Ansible, n8n (Industrial environment)" },
+      { name: "Services", details: "Apache 2, Bind (DNS), Redis" },
+      { name: "OS", details: "Linux (Debian/RHEL), Windows 10/11, macOS" },
+    ],
+  },
+  {
+    category: "NETWORKS & CYBERSECURITY",
+    skills: [
+      { name: "Security", details: "SSO (Authentik, Cisco DUO), LDAP, WAF (Cloudflare/SafeLine)" },
+      { name: "Infrastructure", details: "Hardware deployment (Cisco, UniFi), ToIP (3CX PBX)" },
+      { name: "Databases", details: "MariaDB, PostgreSQL" },
+    ],
+  },
+  {
+    category: "DEVELOPMENT & SCRIPTING",
+    skills: [
+      { name: "Languages", details: "Python, PHP, HTML5/CSS3" },
+      { name: "Scripting", details: "Bash (Linux), Batch/PowerShell (Windows)" },
+    ],
+  },
+];
+
+const experience = [
+  {
+    date: "10/2025 – 08/2026",
+    company: "TOTALENERGIES (TGITS) PAU",
+    role: "IT Process Automation Engineer",
+  },
+  {
+    date: "04/2025 – 06/2025",
+    company: "TOTALENERGIES (TGITS) PAU",
+    role: "IT Process Automation Engineer",
+  },
+];
+
+const education = [
+  {
+    date: "02/2024 – 06/2026",
+    institution: "IUT MONT DE MARSAN",
+    details: [
+      "09/2025 – 06/2026: 3rd Year BUT R&T specialized in Cybersecurity",
+      "09/2024 – 06/2025: 2nd Year BUT R&T specialized in Cybersecurity",
+      "02/2024 – 06/2024: 1st Year BUT R&T",
+    ],
+  },
+  {
+    date: "09/2023 – 01/2024",
+    institution: "CPGE ALBI",
+    details: ["1st Year Preparatory Class (TSI)"],
+  },
+  {
+    date: "2022 – 2023",
+    institution: "LYCÉE SAINT CRICQ PAU",
+    details: ["Baccalauréat STI2D specialized in Information Systems & Digital"],
+  },
+];
+
+const projects = [
+  {
+    title: "Deployment of an IT Network (Homelab \"Nekocorp\")",
+    tasks: [
+      "Analyzed and designed network architecture (router on a stick)",
+      "Sizing, hardware selection, and cost study",
+      "Installation and cabling of network equipment",
+      "Configuration of IP, routing, NAT/PAT, and services (DHCP, DNS, RADIUS)",
+      "Diagnostics, incident resolution, and security hardening (Firewall, IDS/IPS, SIEM)",
+    ],
+  },
+  {
+    title: "Automated Watering System (Final Year High School Project)",
+    tasks: [
+      "Coded in Arduino",
+      "Managed using Microsoft Office and Nextcloud project management suite",
+      "Weekly progress meetings followed by drafting progress reports",
+      "Conducted extensive testing",
+    ],
+  },
+];
+
+const aeronautical = [
+  "Aircraft Piloting: 20h flight time (+50h on simulator) on Robin DR400",
+  "LAPL Student Pilot",
+  "Professional Simulator: Airbus A320",
+];
+
+const languages = [
+  { name: "French", level: "Mother tongue" },
+  { name: "English", level: "TOEIC 940 (Full linguistic proficiency)" },
+];
+
+const interests = [
+  "Server, endpoint, and network management",
+  "PC Gaming",
+  "Automobiles & Driving",
+  "Aviation",
+  "Automotive electronics and mechanics",
+  "Video Editing (Adobe Premiere Pro)",
+];
+---
+
+<section id="cv" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-24">
+  <div class="flex flex-col gap-12">
+    <!-- CV Header -->
+    <header class="cyber-glass p-8 rounded-3xl border border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
+      <div class="z-10">
+        <h2 class="text-4xl md:text-5xl font-vcr text-[var(--white)] tracking-tight">
+          <TypingText client:load text="LÉONARD-ANTON LLOSA" speed={50} />
+        </h2>
+        <p class="text-xl md:text-2xl text-[var(--sec)] font-vcr mt-2 shiny-sec">
+          <TypingText client:load text="Future Network & Security Engineer" speed={40} delay={1500} />
+        </p>
+      </div>
+      <div class="flex flex-col gap-2 text-[var(--white-icon)] font-mono text-sm z-10">
+        <a href="mailto:leonard+leochan.sh@nekocorp.fr" class="hover:text-[var(--primary)] transition-colors flex items-center gap-2">
+          <span class="text-[var(--sec)]">[MAIL]</span> leonard+leochan.sh@nekocorp.fr
+        </a>
+        <a href="tel:+33662386596" class="hover:text-[var(--primary)] transition-colors flex items-center gap-2">
+          <span class="text-[var(--sec)]">[TEL]</span> +33 6 62 38 65 96
+        </a>
+        <a href="https://www.linkedin.com/in/leonard-anton-llosa/" target="_blank" class="hover:text-[var(--primary)] transition-colors flex items-center gap-2">
+          <span class="text-[var(--sec)]">[LINK]</span> LinkedIn Profile
+        </a>
+        <div class="flex items-center gap-2">
+          <span class="text-[var(--sec)]">[DRIVE]</span> Category B - Vehicle Owner
+        </div>
+      </div>
+      
+      <!-- Background Glow Effect -->
+      <div class="absolute -right-20 -top-20 w-64 h-64 bg-[var(--primary)] opacity-10 blur-[100px] pointer-events-none"></div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8">
+      <!-- Left Column -->
+      <aside class="flex flex-col gap-8">
+        <!-- About Me -->
+        <div class="cyber-glass p-6 rounded-2xl border border-white/10">
+          <h3 class="text-xl font-vcr text-[var(--white)] mb-4 flex items-center gap-2">
+            <span class="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse"></span>
+            ABOUT ME
+          </h3>
+          <p class="text-[var(--white-icon)] text-sm leading-relaxed text-justify">
+            Passionate about <span class="text-[var(--white)] font-semibold">complex systems</span>, from <span class="text-[var(--white)] font-semibold">IT to aeronautics</span>, I maintain a dual requirement for technical proficiency and security. My background in the BUT R&T, combined with my field experience at TotalEnergies, has enabled me to master the challenges of network deployment and automation using <span class="text-[var(--white)] font-semibold">Ansible and Docker</span>. As a student pilot accustomed to strict procedures, I am aiming for an engineering degree to tackle the ever-evolving challenges of <span class="text-[var(--white)] font-semibold">cybersecurity</span>.
+          </p>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="cyber-glass p-6 rounded-2xl border border-white/10">
+          <h3 class="text-xl font-vcr text-[var(--white)] mb-6 flex items-center gap-2">
+             <span class="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse"></span>
+             TECH STACK
+          </h3>
+          <div class="space-y-6">
+            {technicalSkills.map((cat) => (
+              <div>
+                <h4 class="text-[var(--sec)] font-vcr text-xs mb-3 tracking-widest">{cat.category}</h4>
+                <ul class="space-y-3">
+                  {cat.skills.map((skill) => (
+                    <li class="flex flex-col gap-1">
+                      <span class="text-[var(--white)] text-sm font-semibold">{skill.name}</span>
+                      <span class="text-[var(--white-icon)] text-xs">{skill.details}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="cyber-glass p-6 rounded-2xl border border-white/10">
+          <h3 class="text-xl font-vcr text-[var(--white)] mb-4 flex items-center gap-2">
+            <span class="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse"></span>
+            LANGUAGES
+          </h3>
+          <div class="space-y-4">
+            {languages.map((lang) => (
+              <div class="flex justify-between items-center gap-2">
+                <span class="text-[var(--white)] text-sm font-vcr">{lang.name}</span>
+                <span class="text-[var(--white-icon)] text-xs font-mono">{lang.level}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Interests -->
+        <div class="cyber-glass p-6 rounded-2xl border border-white/10">
+          <h3 class="text-xl font-vcr text-[var(--white)] mb-4 flex items-center gap-2">
+            <span class="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse"></span>
+            INTERESTS
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            {interests.map((interest) => (
+              <span class="text-[var(--white-icon)] text-xs border border-white/5 bg-white/5 px-3 py-1.5 rounded-full hover:border-[var(--sec)] transition-colors duration-300">
+                {interest}
+              </span>
+            ))}
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Column -->
+      <main class="flex flex-col gap-8">
+        <!-- Professional Experience -->
+        <div class="cyber-glass p-8 rounded-2xl border border-white/10">
+          <h3 class="text-2xl font-vcr text-[var(--white)] mb-8 flex items-center gap-3">
+            <span class="w-3 h-3 bg-[var(--sec)] rounded-full"></span>
+            EXPERIENCE
+          </h3>
+          <div class="space-y-10 relative before:absolute before:left-0 before:top-2 before:bottom-2 before:w-[1px] before:bg-gradient-to-b before:from-[var(--sec)] before:to-transparent pl-8">
+            {experience.map((exp) => (
+              <div class="relative">
+                <div class="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-[var(--background)] border-2 border-[var(--sec)] shadow-[0_0_10px_rgba(93,21,217,0.5)]"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-2">
+                  <h4 class="text-[var(--white)] font-bold text-lg">{exp.company}</h4>
+                  <span class="text-[var(--sec)] font-mono text-sm px-3 py-1 bg-[var(--sec)]/10 rounded-lg border border-[var(--sec)]/20">{exp.date}</span>
+                </div>
+                <p class="text-[var(--primary-light)] font-vcr text-sm tracking-wide">{exp.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="cyber-glass p-8 rounded-2xl border border-white/10">
+          <h3 class="text-2xl font-vcr text-[var(--white)] mb-8 flex items-center gap-3">
+            <span class="w-3 h-3 bg-[var(--sec)] rounded-full"></span>
+            EDUCATION
+          </h3>
+          <div class="space-y-12 pl-8 border-l border-white/10">
+            {education.map((edu) => (
+              <div class="relative">
+                <div class="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-[var(--background)] border-2 border-[var(--white-icon-tr)]"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                  <h4 class="text-[var(--white)] font-bold text-lg">{edu.institution}</h4>
+                  <span class="text-[var(--white-icon)] font-mono text-xs px-3 py-1 bg-white/5 rounded-lg border border-white/10">{edu.date}</span>
+                </div>
+                <ul class="space-y-2">
+                  {edu.details.map((detail) => (
+                    <li class="text-[var(--white-icon)] text-sm flex items-start gap-2">
+                      <span class="text-[var(--sec)] mt-1 opacity-50">▹</span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Project Management -->
+        <div class="cyber-glass p-8 rounded-2xl border border-white/10">
+          <h3 class="text-2xl font-vcr text-[var(--white)] mb-8 flex items-center gap-3">
+            <span class="w-3 h-3 bg-[var(--sec)] rounded-full"></span>
+            PROJECTS
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projects.map((project) => (
+              <div class="bg-white/5 border border-white/10 p-5 rounded-xl hover:bg-white/10 transition-colors duration-300">
+                <h4 class="text-[var(--white)] font-bold mb-4 text-sm uppercase tracking-tight leading-tight">{project.title}</h4>
+                <ul class="space-y-2">
+                  {project.tasks.map((task) => (
+                    <li class="text-[var(--white-icon)] text-xs flex items-start gap-2">
+                      <span class="text-[var(--primary)] shrink-0">•</span>
+                      <span>{task}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Aeronautical Skills -->
+        <div class="cyber-glass p-8 rounded-2xl border border-white/10">
+          <h3 class="text-2xl font-vcr text-[var(--white)] mb-8 flex items-center gap-3">
+            <span class="w-3 h-3 bg-[var(--sec)] rounded-full"></span>
+            AERONAUTICS
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {aeronautical.map((item) => (
+              <div class="p-4 bg-[var(--sec)]/5 border border-[var(--sec)]/20 rounded-xl text-center flex items-center justify-center min-h-[100px]">
+                <p class="text-[var(--white)] text-sm font-medium leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<style>
+  .shiny-sec {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 25%,
+      var(--primary-light) 50%,
+      var(--primary) 75%
+    );
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3s linear infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 100% 50%;
+    }
+    30%,
+    70% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
