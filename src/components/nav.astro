@@ -8,22 +8,22 @@ interface NavItem {
 const navItems: NavItem[] = [
   {
     label: "_WHOAMI",
-    href: "#home",
+    href: "/#home",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M21 20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.48907C3 9.18048 3.14247 8.88917 3.38606 8.69972L11.3861 2.47749C11.7472 2.19663 12.2528 2.19663 12.6139 2.47749L20.6139 8.69972C20.8575 8.88917 21 9.18048 21 9.48907V20ZM19 19V9.97815L12 4.53371L5 9.97815V19H19Z"></path></svg>`,
   },
   {
     label: "_RESUME",
-    href: "#cv",
+    href: "/#cv",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 22H5C3.89543 22 3 21.1046 3 20V4C3 2.89543 3.89543 2 5 2H14L21 9V20C21 21.1046 20.1046 22 19 22ZM13 4H5V20H19V10H13V4ZM15 4.58579L18.4142 8H15V4.58579Z"></path></svg>`,
   },
   {
     label: "_INFRA",
-    href: "#projects",
+    href: "/#projects",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 5V19H20V7H11.5858L9.58579 5H4ZM12.4142 5H21C21.5523 5 22 5.44772 22 6V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5Z"></path></svg>`,
   },
   {
     label: "_CONNECT",
-    href: "#contact",
+    href: "/#contact",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M21.7267 2.95694L16.2734 22.0432C16.1225 22.5716 15.7979 22.5956 15.5563 22.1126L11 13L1.9229 9.36919C1.41322 9.16532 1.41953 8.86022 1.95695 8.68108L21.0432 2.31901C21.5716 2.14285 21.8747 2.43866 21.7267 2.95694ZM19.0353 5.09647L6.81221 9.17085L12.4488 11.4255L15.4895 17.5068L19.0353 5.09647Z"></path></svg>`,
   },
 ];
@@ -34,12 +34,12 @@ const navItems: NavItem[] = [
     id="main-nav"
     class="fixed left-1/2 -translate-x-1/2 z-[100] bg-[var(--background)] border border-1 border-transparent backdrop-blur-xl transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
   >
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-3 px-6 sm:px-6 lg:px-8">
-      <a href="#home" class="hidden md:block transition-transform hover:scale-105" aria-label="NEKOCORP // L.A. Home">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-3 px-6 sm:px-6 lg:px-8 transition-all duration-500 ease-in-out" id="nav-container">
+      <a href="#home" class="nav-logo hidden md:block transition-all duration-500 ease-in-out hover:scale-105 whitespace-nowrap overflow-hidden" aria-label="NEKOCORP // L.A. Home">
         <span class="font-vcr text-xl text-[var(--white)] tracking-tighter">NEKOCORP // L.A.</span>
       </a>
       <ul
-        class="flex w-full md:w-auto justify-between md:space-x-6 md:justify-center md:gap-12 gap-6"
+        class="flex w-full md:w-auto justify-between md:space-x-6 md:justify-center md:gap-12 gap-6 transition-all duration-500 ease-in-out"
       >
         {
           navItems.map((item) => (
@@ -79,6 +79,17 @@ const navItems: NavItem[] = [
     -webkit-backdrop-filter: blur(24px);
     border-color: rgba(255, 255, 255, 0.1);
     border-radius: 9999px;
+  }
+
+  nav.scrolling .nav-logo {
+    width: 0;
+    opacity: 0;
+    margin-right: -2rem;
+    pointer-events: none;
+  }
+
+  nav.scrolling #nav-container {
+    justify-content: center;
   }
 
   nav a.active .nav-indicator {
@@ -138,7 +149,7 @@ const navItems: NavItem[] = [
 
       // Explicitly highlight WHOAMI when at top
       navLinks.forEach((link) => link.classList.remove("active"));
-      const homeLink = document.querySelector("nav a[href='#home']");
+      const homeLink = document.querySelector("nav ul a[href='#home']");
       if (homeLink) homeLink.classList.add("active");
     }
     rafId = null;
@@ -171,7 +182,10 @@ const navItems: NavItem[] = [
   document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll("nav a[href^='#']");
-    const observerOptions = { threshold: 0.6 };
+    const observerOptions = { 
+      threshold: 0.2,
+      rootMargin: "-20% 0px -20% 0px"
+    };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
@@ -180,7 +194,7 @@ const navItems: NavItem[] = [
           if (window.scrollY > 50 || entry.target.id !== 'home') {
             navLinks.forEach((link) => link.classList.remove("active"));
             const id = entry.target.getAttribute("id");
-            const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+            const activeLink = document.querySelector(`nav ul a[href="#${id}"]`);
             if (activeLink) {
               activeLink.classList.add("active");
             }
