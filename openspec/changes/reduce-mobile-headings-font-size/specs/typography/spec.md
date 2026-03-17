@@ -4,4 +4,4 @@ Heading elements SHALL scale appropriately on mobile devices to prevent layout o
 
 #### Scenario: Mobile Font Size Reduction
 - **WHEN** the viewport width is less than 640px (mobile)
-- **THEN** h1 and h2 tags SHALL have their font size reduced by approximately 20% compared to their default desktop sizes.
+- **THEN** h1, h2, and h3 tags SHALL have their font size reduced by approximately 20% compared to their default desktop sizes.
