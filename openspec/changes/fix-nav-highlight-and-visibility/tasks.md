@@ -13,10 +13,12 @@
 - [x] Set `.nav-logo` to `width: 90px` and `display: inline-block` when in `.scrolling` state in `src/components/nav.astro`.
 - [x] Ensure `nav.scrolling #nav-container` maintains `justify-content: space-between`.
 - [x] Verify that the logo `<a>` tag targets `#home` and is included in the updated smooth-scroll selector.
+- [x] Explicitly hide `.nav-logo` on mobile screen sizes (`max-width: 767px`).
 
 ## 4. Validation
 - [x] Verify highlighting on desktop (scroll spy).
 - [x] Verify logo visibility on desktop scroll.
 - [x] Verify logo link functionality (smooth scroll to top).
+- [x] Verify logo is hidden on mobile viewports.
 - [x] Verify mobile navigation active highlight.
 - [x] Verify smooth scroll functionality (ensure click works with root-relative anchors).
