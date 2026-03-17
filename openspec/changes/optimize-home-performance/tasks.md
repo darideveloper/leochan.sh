@@ -14,7 +14,3 @@
 - [x] In `src/React/LetterGlitch.tsx`: Increase `fontSize`, `charWidth`, and `charHeight` to reduce the overall grid density (e.g., from 16 to 24 or 32) and lower the total number of characters processed per frame.
 - [x] In `src/React/LetterGlitch.tsx`: Cache parsed hex/RGB values during initialization instead of repeatedly computing them inside the animation loop.
 - [x] In `src/React/LetterGlitch.tsx`: Implement "dirty rectangle" tracking—only use `ctx.clearRect` and `ctx.fillText` on individual character coordinates that have actually changed in the current frame, instead of clearing the entire canvas (`ctx.clearRect(0, 0, width, height)`).
-
-## Phase 4: CSS Filter and Glassmorphism Reduction
-- [ ] In `src/components/home.astro`: Optimize `.blob-1` and `.blob-2`. Either reduce the `blur(80px)` radius, use an SVG radial gradient fallback, or lower the overall opacity and remove the blur to relieve compositor load.
-- [ ] In `src/layouts/Layout.astro`: Adjust the `.cyber-glass` utility class. For mobile breakpoints (`@media (max-width: 768px)`), reduce or remove `backdrop-filter: blur(20px)` and fall back to a semi-transparent solid background to save battery and GPU cycles.

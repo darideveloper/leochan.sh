@@ -59,30 +59,13 @@ const contentHtml = await marked.parse(project.content);
         </div>
       </div>
 
-      <!-- Main Content -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <!-- Markdown Content Area -->
-        <div class="lg:col-span-2 space-y-8">
-          <div class="cyber-glass p-6 md:p-10 rounded-3xl border border-white/10 shadow-2xl shadow-purple-950/20">
-            <div class="mb-10 rounded-2xl overflow-hidden border border-white/5 group">
-                <Image 
-                   src={project.image} 
-                   alt={project.title} 
-                   class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-1000"
-                 />
-             </div>
-             
-             <article class="prose-container">
-               <div class="prose prose-invert prose-mono max-w-none" set:html={contentHtml} />
-             </article>
-          </div>
-        </div>
-
-        <!-- Sidebar Details -->
-        <div class="space-y-8">
-          <div class="cyber-glass p-8 rounded-3xl border border-white/10 h-full flex flex-col sticky top-32">
+      <!-- Main Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        <!-- Sidebar Details (Top on Mobile, Right on Desktop) -->
+        <div class="lg:order-last lg:col-span-1 space-y-8 lg:sticky lg:top-32">
+          <div class="cyber-glass p-8 rounded-3xl border border-white/10 flex flex-col">
             <h2 class="text-xl font-vcr mb-6 text-[var(--sec)] shiny-sec tracking-widest">[ LOG_DETAILS ]</h2>
-            <p class="text-[var(--white-icon)] leading-relaxed mb-8 font-mono text-sm md:text-base flex-grow">
+            <p class="text-[var(--white-icon)] leading-relaxed mb-8 font-mono text-sm md:text-base">
               {project.fullDescription}
             </p>
             
@@ -108,6 +91,23 @@ const contentHtml = await marked.parse(project.content);
                 </svg>
               </a>
             </div>
+          </div>
+        </div>
+
+        <!-- Markdown Content Area -->
+        <div class="lg:col-span-2 space-y-8 lg:order-first">
+          <div class="cyber-glass p-6 md:p-10 rounded-3xl border border-white/10 shadow-2xl shadow-purple-950/20">
+            <div class="mb-10 rounded-2xl overflow-hidden border border-white/5 group">
+                <Image 
+                   src={project.image} 
+                   alt={project.title} 
+                   class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-1000"
+                 />
+             </div>
+             
+             <article class="prose-container">
+               <div class="prose prose-invert prose-mono max-w-none" set:html={contentHtml} />
+             </article>
           </div>
         </div>
       </div>
