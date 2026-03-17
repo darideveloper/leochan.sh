@@ -1,6 +1,6 @@
 # Performance Optimization Specifications
 
-## MODIFIED Requirements
+## ADDED Requirements
 
 ### Requirement: Navigation Bar Scroll Animation
 The navigation bar MUST animate its width-like transition during scrolling using a strategy that avoids modifying `width` directly on the container, which triggers layout reflows. It MUST leverage `max-width` transitioning with CSS or hardware-accelerated transforms (`scaleX`) where possible.
