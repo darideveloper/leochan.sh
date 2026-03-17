@@ -149,7 +149,7 @@ const StartupSequence: React.FC = () => {
         {/* Skip Button */}
         <button
           onClick={skipSequence}
-          className="absolute bottom-8 right-8 text-[var(--muted)] hover:text-white transition-colors text-xs md:text-sm border border-[var(--border-subtle)] px-4 py-2 rounded bg-white/5 backdrop-blur-sm"
+          className="absolute bottom-8 right-8 text-[var(--muted)] hover:text-white transition-colors text-xs md:text-sm px-4 py-2 rounded cyber-glass"
         >
           SKIP (ESC)
         </button>

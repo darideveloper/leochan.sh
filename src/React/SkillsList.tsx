@@ -84,7 +84,7 @@ const SkillsList = () => {
                 tabIndex={0}
                 aria-expanded={isExpanded}
                 aria-controls={sectionId}
-                className="md:w-[450px] w-full bg-white/5 backdrop-blur-md rounded-2xl text-left hover:bg-white/10 transition-all border border-white/10 cursor-pointer overflow-hidden focus:outline-none focus:ring-2 focus:ring-[var(--sec)] focus:ring-opacity-50"
+                className="md:w-[450px] w-full cyber-glass rounded-2xl text-left transition-all border border-white/10 cursor-pointer overflow-hidden focus:outline-none focus:ring-2 focus:ring-[var(--sec)] focus:ring-opacity-50"
               >
                 <div className="flex items-center gap-3 p-4">
                   {CategoryIcons[category]}
