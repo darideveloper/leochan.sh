@@ -34,12 +34,12 @@ const navItems: NavItem[] = [
     id="main-nav"
     class="fixed left-1/2 -translate-x-1/2 z-[100] bg-[var(--background)] border border-1 border-transparent backdrop-blur-xl transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
   >
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-3 px-6 sm:px-6 lg:px-8 transition-all duration-500 ease-in-out" id="nav-container">
+    <div class="max-w-8xl mx-auto flex justify-between items-center p-3 px-6 sm:px-6 lg:px-8 transition-all duration-500 ease-in-out" id="nav-container">
       <a href="#home" class="nav-logo hidden md:block transition-all duration-500 ease-in-out hover:scale-105 whitespace-nowrap overflow-hidden" aria-label="NEKOCORP // L.A. Home">
         <span class="font-vcr text-xl text-[var(--white)] tracking-tighter">NEKOCORP // L.A.</span>
       </a>
       <ul
-        class="flex w-full md:w-auto justify-between md:justify-center md:gap-8 gap-6 transition-all duration-500 ease-in-out"
+        class="flex w-full md:w-auto justify-between md:justify-center md:gap-10 gap-6 transition-all duration-500 ease-in-out"
       >
         {
           navItems.map((item) => (
@@ -49,7 +49,7 @@ const navItems: NavItem[] = [
                 aria-label={item.label}
                 class="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base relative group font-sans"
               >
-                <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 bg-tertiary nav-indicator hidden md:block" />
+                <div class="absolute -left-4 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 bg-tertiary nav-indicator hidden md:block" />
                 <span class="md:hidden flex items-center justify-center w-6 h-6">
                   <fragment set:html={item.icon} />
                 </span>
@@ -79,6 +79,11 @@ const navItems: NavItem[] = [
     -webkit-backdrop-filter: blur(24px);
     border-color: rgba(255, 255, 255, 0.1);
     border-radius: 9999px;
+  }
+
+  nav.scrolling .nav-logo {
+    width: 90px;
+    display: inline-block;
   }
 
   nav a.active .nav-indicator {

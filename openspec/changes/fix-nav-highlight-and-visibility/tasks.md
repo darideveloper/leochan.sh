@@ -10,7 +10,7 @@
 - [x] Update `updateNav` to use matching selectors for root-relative anchors.
 
 ## 3. Restore Logo Visibility and Functionality
-- [x] Remove the CSS block in `src/components/nav.astro` that sets `width: 0`, `opacity: 0`, and `pointer-events: none` on `.nav-logo` when in `.scrolling` state.
+- [x] Set `.nav-logo` to `width: 90px` and `display: inline-block` when in `.scrolling` state in `src/components/nav.astro`.
 - [x] Ensure `nav.scrolling #nav-container` maintains `justify-content: space-between`.
 - [x] Verify that the logo `<a>` tag targets `#home` and is included in the updated smooth-scroll selector.
 

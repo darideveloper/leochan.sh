@@ -8,7 +8,7 @@ The navigation component (`src/components/nav.astro`) currently has three functi
 
 ## Proposed Changes
 1. **Update Selectors**: Modify the JavaScript selectors in `src/components/nav.astro` to use fuzzy matching (`[href*='#']`) or end-of-string matching (`[href$='#${id}']`) to correctly identify the active link.
-2. **Restore Logo Visibility**: Remove the CSS rules that set `width: 0` and `opacity: 0` on `.nav-logo` when the `.scrolling` class is applied.
+2. **Restore Logo Visibility**: Update the logo (`.nav-logo`) to remain visible during scroll with a specific width of `90px` and `display: inline-block` to maintain brand identity in the scrolling state.
 3. **Fix Logo Link**: Ensure the logo link correctly targets `#home` and is handled by the smooth-scroll logic.
 4. **Refine Layout**: Adjust the `#nav-container` layout to maintain `justify-between` even when scrolling, ensuring the logo and menu items are correctly positioned.
 4. **Global Styling Improvements**: Implement recommendations for maintainability:
