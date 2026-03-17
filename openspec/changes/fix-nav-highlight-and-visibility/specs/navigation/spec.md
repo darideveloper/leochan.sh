@@ -11,6 +11,15 @@ The navigation bar MUST transition smoothly between its initial and scrolling st
 - **Then** the logo MUST remain visible and at its original opacity.
 - **And** the navigation container MUST maintain its layout with items balanced (e.g., `justify-between`).
 
+### Requirement: Logo Navigation Link
+The navigation logo MUST function as a link that scrolls the user back to the top of the home page.
+
+#### Scenario: Clicking the navigation logo
+- **Given** the user is at any scroll position.
+- **When** the user clicks the "NEKOCORP // L.A." logo.
+- **Then** the viewport MUST smoothly scroll back to the `#home` section.
+- **And** the `_WHOAMI` navigation link MUST be highlighted as active.
+
 ### Requirement: Navigation Link Selection
 The navigation menu MUST correctly highlight the corresponding link as the user scrolls, supporting root-relative anchors.
 

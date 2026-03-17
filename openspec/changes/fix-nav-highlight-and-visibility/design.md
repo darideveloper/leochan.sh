@@ -12,6 +12,7 @@ The `navItems` data defines `href` as `/#home`, `/#cv`, etc. (root-relative anch
 The `nav.scrolling .nav-logo` rule currently shrinks and fades the logo.
 - **The Problem**: Branding is lost on scroll.
 - **The Fix**: Remove the `width: 0`, `opacity: 0`, and `pointer-events: none` from `.nav-logo` in the `.scrolling` state. 
+- **Logo Link Fix**: The `.nav-logo` anchor tag (`<a>`) needs to be correctly identified by the smooth-scroll script. By updating the smooth-scroll selector to `a[href*='#']`, the logo link (which currently points to `#home`) will be automatically picked up and handled by the smooth-scroll logic.
 - **Container Adjustments**: Ensure `#nav-container` remains `justify-between` to keep the logo on the left and menu on the right.
 
 ### 3. Maintainability (Recommendations)

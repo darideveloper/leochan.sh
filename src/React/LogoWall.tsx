@@ -1,15 +1,14 @@
 import React from "react";
 import { 
-  SiAstro, SiVuedotjs, SiReact, SiTypescript, SiTailwindcss, 
-  SiNextdotjs, SiNodedotjs, SiHtml5, SiCss, SiJavascript, 
-  SiGit, SiSupabase, SiMysql, SiGnubash, SiDocker, 
-  SiAnsible, SiN8N, SiGitlab, SiPython, SiPhp, 
-  SiPostgresql, SiAuthentik, SiCisco, SiBackblaze, SiDjango, SiRedis, 
-  SiDotnet, SiNow, SiRustdesk, SiEclipsemosquitto 
+  SiVuedotjs, SiReact, SiTailwindcss, 
+  SiNodedotjs, SiJavascript, 
+  SiGit, SiDocker, 
+  SiAnsible, SiN8N, SiPython, SiPhp, 
+  SiAuthentik, SiBackblaze, SiDjango, SiRedis, 
+  SiNow, SiRustdesk, SiEclipsemosquitto, SiCloudflare, SiWireshark 
 } from "react-icons/si";
 import { FaMicrosoft } from "react-icons/fa";
-import { VscAzure, VscAzureDevops } from "react-icons/vsc";
-import { TbBrandCSharp } from "react-icons/tb";
+import { VscAzure } from "react-icons/vsc";
 
 const technologies = [
   { name: "vue", icon: <SiVuedotjs /> },
@@ -27,11 +26,11 @@ const technologies = [
   { name: "n8n", icon: <SiN8N /> },
   { name: "authentik", icon: <SiAuthentik /> },
   { name: "Cisco Duo", icon: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Duo_Logo_Green.svg" },
-  { name: "Kasm", icon: "https://avatars.githubusercontent.com/u/44181855?s=280&v=4" },
-  { name: "Cloudflare", icon: "https://raw.githubusercontent.com/lobehub/lobeicons/refs/heads/master/packages/static-png/dark/cloudflare-color.png" },
+  { name: "Kasm Workspaces", icon: "https://avatars.githubusercontent.com/u/44181855?s=280&v=4" },
+  { name: "Cloudflare", icon: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/cloudflare-color.png" },
   { name: "SafeLine", icon: "https://safepoint.cloud/_next/static/media/logo.11697169.svg" },
   { name: "GLPI", icon: "https://avatars.githubusercontent.com/u/13361707?s=280&v=4" },
-  { name: "Wireshark", icon: "https://www.wireshark.org/_astro/wireshark-logobig.CkRjSOaC_2eT4Ah.png" },
+  { name: "Wireshark", icon: "https://www.wireshark.org/_astro/wireshark-logo-big.CkRjSOaC_2eT4Ah.png" },
   { name: "azure", icon: <VscAzure /> },
   { name: "microsoft", icon: <FaMicrosoft /> },
   { name: "serviceNow", icon: <SiNow /> },

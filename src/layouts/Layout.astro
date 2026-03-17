@@ -108,7 +108,6 @@ visibility: hidden;
 html.is-booting body {
 overflow: hidden;
 }
-...
 
   @font-face {
     font-family: "Montserrat Variable";
@@ -146,6 +145,9 @@ overflow: hidden;
     --white: var(--foreground);
     --white-icon: var(--muted);
     --white-icon-tr: var(--border-subtle);
+
+    --nav-active-color: var(--white);
+    --mobile-nav-height: 70px;
   }
 
   * {
@@ -253,6 +255,12 @@ overflow: hidden;
   .cyber-glass:hover {
     box-shadow: 0 0 20px rgba(201, 47, 255, 0.2);
     background: rgba(255, 255, 255, 0.08);
+  }
+
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: var(--mobile-nav-height);
+    }
   }
 
   @supports not (backdrop-filter: blur(20px)) {
