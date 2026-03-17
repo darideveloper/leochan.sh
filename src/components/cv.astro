@@ -93,9 +93,9 @@ const {
           </h3>
           <div class="space-y-4">
             {languages.map((lang) => (
-              <div class="flex justify-between items-center gap-2">
-                <span class="text-[var(--white)] text-sm font-vcr">{lang.name}</span>
-                <span class="text-[var(--white-icon)] text-xs font-mono">{lang.level}</span>
+              <div class="flex justify-between items-start gap-4">
+                <span class="text-[var(--white)] text-sm font-vcr shrink-0">{lang.name}</span>
+                <span class="text-[var(--white-icon)] text-xs font-mono text-right">{lang.level}</span>
               </div>
             ))}
           </div>

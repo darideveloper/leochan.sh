@@ -1,4 +1,4 @@
-## MODIFIED Requirements
+## ADDED Requirements
 
 ### Requirement: Cyber-Glass Aesthetic for UI Panels and Cards
 The standard flat dark mode panels MUST be upgraded to feature an enhanced frosted glass look with neon gradient edges and interactive hover states to increase visual depth and immersion.

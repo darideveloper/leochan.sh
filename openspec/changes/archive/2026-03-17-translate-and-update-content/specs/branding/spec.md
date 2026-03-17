@@ -1,6 +1,6 @@
 # branding Specification Delta
 
-## MODIFIED Requirements
+## ADDED Requirements
 ### Requirement: Tech Stack & Skillset
 The branding MUST reflect the owner's actual skillset and toolset.
 

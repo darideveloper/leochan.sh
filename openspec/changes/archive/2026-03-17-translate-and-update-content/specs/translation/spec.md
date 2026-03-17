@@ -36,6 +36,7 @@ The site SHALL be primarily in English, reflecting the owner's professional focu
     - "Interface & UI..." -> "Interface & UI: Tailwind CSS for modern web interfaces and Tkinter for desktop GUI clients."
   - **"ITSM & Résilience Entreprise"** -> **"ITSM & Business Resilience"** (Maintain ITIL, DR, and Service Management bullet points in English as per requirements).
 
+## ADDED Requirements
 ### Requirement: Hero Quote
 A professional quote MUST be added beneath the job title to capture the owner's philosophy.
 

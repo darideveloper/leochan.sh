@@ -1,6 +1,6 @@
 # navigation Specification Delta
 
-## MODIFIED Requirements
+## ADDED Requirements
 ### Requirement: Navigation Link Selection
 The navigation menu MUST correctly highlight the corresponding link as the user scrolls, including the first item when at the very top.
 
