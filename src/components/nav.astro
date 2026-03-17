@@ -141,10 +141,12 @@ const navItems: NavItem[] = [
       nav?.classList.remove("scrolling");
       nav?.style.setProperty("width", "80%");
 
-      // Explicitly highlight WHOAMI when at top
-      navLinks.forEach((link) => link.classList.remove("active"));
-      const homeLink = document.querySelector("nav ul a[href$='#home']");
-      if (homeLink) homeLink.classList.add("active");
+      if (window.location.pathname === "/") {
+        // Explicitly highlight WHOAMI when at top
+        navLinks.forEach((link) => link.classList.remove("active"));
+        const homeLink = document.querySelector("nav ul a[href$='#home']");
+        if (homeLink) homeLink.classList.add("active");
+      }
     }
     rafId = null;
   }
@@ -163,14 +165,18 @@ const navItems: NavItem[] = [
     anchor.addEventListener("click", function (e) {
       const target = e.currentTarget as HTMLAnchorElement;
       const href = target.getAttribute("href") || "";
-      const targetId = href.split("#")[1] || "";
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        e.preventDefault();
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-        });
+      
+      // If we are on home page and it's a hash link, smooth scroll
+      if (window.location.pathname === "/" && (href.startsWith("#") || href.startsWith("/#"))) {
+        const targetId = href.split("#")[1] || "";
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+          });
+          history.pushState(null, "", href);
+        }
       }
     });
   });
@@ -184,6 +190,11 @@ const navItems: NavItem[] = [
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      if (window.location.pathname !== "/") {
+        navLinks.forEach((link) => link.classList.remove("active"));
+        return;
+      }
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Only update if not at the very top (let scroll listener handle top)

@@ -1,0 +1,31 @@
+# Performance Optimization Specifications
+
+## MODIFIED Requirements
+
+### Requirement: Navigation Bar Scroll Animation
+The navigation bar MUST animate its width-like transition during scrolling using a strategy that avoids modifying `width` directly on the container, which triggers layout reflows. It MUST leverage `max-width` transitioning with CSS or hardware-accelerated transforms (`scaleX`) where possible.
+#### Scenario: User scrolls down the page
+- The `nav` element applies CSS transitions that offload work to the compositor thread.
+
+### Requirement: Lazy Component Hydration
+Heavy React components that appear "below the fold" MUST only hydrate when they become visible.
+#### Scenario: Initial page load
+- `LogoWall`, `LetterGlitch`, and `SkillsList` in `src/components/home.astro` are rendered to HTML initially but do not hydrate on load.
+- Their Astro directive is updated from `client:load` to `client:visible`.
+
+### Requirement: Optimized LetterGlitch Canvas
+The `LetterGlitch` canvas animation MUST reduce redundant repaints and computation.
+#### Scenario: Canvas animation loop
+- Instead of clearing the entire canvas on every frame, the `animate` loop only clears and redrawing characters that have actively changed.
+- RGB values are calculated efficiently or cached.
+- Density is reduced slightly (larger `fontSize`) to reduce the total number of characters that need iterating over.
+
+### Requirement: Simplified Background Blurs
+Large background blobs MUST use highly efficient methods to render their gradients/blurs, minimizing `filter: blur(80px)` costs.
+#### Scenario: Rendering background blobs in `home.astro`
+- The blobs use simplified gradients (e.g., SVG radial gradients) instead of expensive CSS blur filters, or CSS blurs are reduced/optimized.
+
+### Requirement: Graceful Degradation of Glassmorphism
+The `.cyber-glass` effect MUST limit its performance footprint on mobile devices.
+#### Scenario: Rendering `.cyber-glass` on mobile
+- Add a media query for mobile (`@media (max-width: 768px)`) that reduces the `backdrop-filter: blur(20px)` to a smaller value or removes it in favor of a solid semi-transparent color, reducing GPU overhead.

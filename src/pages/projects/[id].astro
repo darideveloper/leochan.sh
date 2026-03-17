@@ -1,0 +1,115 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Nav from "@/components/nav.astro";
+import Footer from "@/components/footer.astro";
+import { getProjects } from "@/data/projects";
+import { Image } from "astro:assets";
+import TypingText from "@/React/TypingText.tsx";
+
+export async function getStaticPaths() {
+  const projects = getProjects();
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={project.title}>
+  <Nav />
+  <main class="pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="mb-12">
+        <a 
+          href="/#projects" 
+          class="inline-flex items-center gap-2 text-[var(--sec)] hover:text-white mb-6 transition-colors group font-vcr"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 group-hover:-translate-x-1 transition-transform">
+            <path d="M7.82843 11H20V13H7.82843L13.1924 18.364L11.7782 19.7782L4 12L11.7782 4.22183L13.1924 5.63604L7.82843 11Z"></path>
+          </svg>
+          [ BACK_TO_INFRA ]
+        </a>
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="flex-1">
+            <h1 class="text-4xl md:text-7xl font-bold mb-4 text-white drop-shadow-[0_0_15px_rgba(201,47,255,0.3)]">
+              <TypingText client:load text={project.title} />
+            </h1>
+            <div class="flex flex-wrap gap-3">
+              {project.technologies.map((tech) => (
+                <span class="px-3 py-1 text-xs font-mono cyber-glass rounded-full text-[var(--white-icon)] border border-white/5">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div class="flex flex-col items-start md:items-end gap-2 shrink-0">
+            <span class="text-sm font-mono text-[var(--sec)] shiny-sec">
+              STATUS: {project.status.toUpperCase()}
+            </span>
+            <span class="text-sm font-mono text-[var(--white-icon)]">
+              YEAR: {project.date}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Showcase Image -->
+        <div class="lg:col-span-2 space-y-8">
+          <div class="cyber-glass rounded-3xl overflow-hidden border border-white/10 group shadow-2xl shadow-purple-950/20">
+             <Image 
+                src={project.image} 
+                alt={project.title} 
+                class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-1000"
+              />
+          </div>
+        </div>
+
+        <!-- Sidebar Details -->
+        <div class="space-y-8">
+          <div class="cyber-glass p-8 rounded-3xl border border-white/10 h-full flex flex-col">
+            <h2 class="text-xl font-vcr mb-6 text-[var(--sec)] shiny-sec tracking-widest">[ LOG_DETAILS ]</h2>
+            <p class="text-[var(--white-icon)] leading-relaxed mb-8 font-mono text-sm md:text-base flex-grow">
+              {project.fullDescription}
+            </p>
+            
+            <div class="flex flex-col gap-4 mt-auto pt-6 border-t border-white/5">
+              <a 
+                href={project.preview} 
+                target="_blank" 
+                class="w-full flex items-center justify-center gap-3 py-4 rounded-xl cyber-glass bg-purple-600/10 hover:bg-purple-600/20 text-white font-vcr transition-all group/btn"
+              >
+                DEPLOYED_PREVIEW
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform">
+                  <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
+                </svg>
+              </a>
+              <a 
+                href={project.link} 
+                target="_blank" 
+                class="w-full flex items-center justify-center gap-3 py-4 rounded-xl cyber-glass border border-white/10 hover:bg-white/5 text-[var(--white-icon)] hover:text-white font-vcr transition-all group/btn"
+              >
+                GITEA_REPOSITORY
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 group-hover/btn:scale-110 transition-transform">
+                  <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .shiny-sec {
+    text-shadow: 0 0 10px var(--sec);
+  }
+</style>

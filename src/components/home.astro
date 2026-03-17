@@ -140,7 +140,7 @@ import TypingText from "../React/TypingText.tsx";
 
     <!-- Reused LogoWall at the bottom -->
     <div class="pt-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-      <LogoWall client:load />
+      <LogoWall client:visible />
     </div>
   </div>
 
@@ -149,7 +149,7 @@ import TypingText from "../React/TypingText.tsx";
     <!-- Background Canvas -->
     <div class="absolute inset-0 z-0 opacity-80 pointer-events-none">
       <LetterGlitch
-        client:load
+        client:visible
         glitchColors={["var(--secondary)", "var(--primary)", "#1A0A2E"]}
         glitchSpeed={33}
         centerVignette={false}
@@ -161,7 +161,7 @@ import TypingText from "../React/TypingText.tsx";
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
         <div class="w-full lg:w-1/2">
-          <SkillsList client:load />
+          <SkillsList client:visible />
         </div>
         <div class="w-full lg:w-1/2 flex flex-col items-center justify-center">
           <img 
