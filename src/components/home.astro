@@ -13,33 +13,54 @@ import TypingText from "../React/TypingText.tsx";
   </div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 md:pt-44 md:pb-24 pb-14">
+    <div class="space-y-2 mb-12">
+      <h2 class="text-sm md:text-lg text-[var(--sec)] mb-2 shiny-sec">
+        <TypingText client:visible text="[ INITIALIZING ]" />
+      </h2>
+      <h3 class="text-2xl md:text-5xl font-medium">
+        <TypingText client:visible text="[01] _WHOAMI" />
+      </h3>
+    </div>
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
       <!-- Left Column: Intro and Typography -->
       <div class="text-left space-y-6">
         <div class="space-y-2">
           <p class="text-md md:text-xl font-vcr tracking-widest text-[var(--primary-light)] opacity-80 uppercase">
-             Design
+             <TypingText
+              client:load
+              text="Hi, I’m Leonard-Anton"
+              speed={70}
+            />
           </p>
           <div class="flex flex-col">
             <h1
-              class="text-[var(--white)] text-6xl md:text-8xl lg:text-[10rem] font-black leading-[0.85] tracking-tighter uppercase"
+              class="text-[var(--white)] text-4xl md:text-7xl lg:text-[9rem] font-black leading-[0.85] tracking-tighter uppercase"
             >
-              CREATIVE
+              INFRASTRUCTURE
             </h1>
-            <p class="text-2xl md:text-5xl font-vcr text-right text-[var(--white)] tracking-tighter opacity-90">
-              agency.
+            <p class="text-xl md:text-4xl font-vcr text-right text-[var(--white)] tracking-tighter opacity-90">
+              & Security.
             </p>
           </div>
         </div>
 
         <div class="space-y-6 pt-4">
-          <p class="text-md md:text-lg text-[var(--white-icon)] leading-relaxed max-w-xl">
-             Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular.
+          <div class="relative max-w-xl">
+            <span class="absolute -left-6 -top-10 text-9xl text-[var(--white-icon)] opacity-10 font-serif pointer-events-none select-none">“</span>
+            <p class="relative z-10 text-md md:text-lg text-[var(--white-icon)] italic pl-4 leading-relaxed">
+              From IT to aviation, I thrive on complex systems, committed to the dual pillars of technical performance and security.
+            </p>
+            <span class="absolute -right-6 -bottom-16 text-9xl text-[var(--white-icon)] opacity-10 font-serif pointer-events-none select-none">”</span>
+          </div>
+
+          <p class="text-sm md:text-md font-vcr text-[var(--white-icon)] leading-relaxed max-w-xl opacity-80">
+            Cybersecurity & Infrastructure Engineer specializing in Zero-Trust architectures and automation.
           </p>
           
           <div class="flex items-center gap-4">
-             <a href="#services" class="text-[var(--primary-light)] underline underline-offset-8 font-medium hover:text-[var(--white)] transition-colors">
-               Get Started »
+             <a href="#projects" class="text-[var(--primary-light)] underline underline-offset-8 font-medium hover:text-[var(--white)] transition-colors">
+               Explore Lab »
              </a>
           </div>
 
@@ -92,7 +113,7 @@ import TypingText from "../React/TypingText.tsx";
       </div>
 
       <!-- Right Column: Stat Cards (Component Reuse) -->
-      <div class="relative flex flex-col md:flex-row lg:flex-row gap-6 items-end justify-end pt-12 lg:pt-0">
+      <div class="relative flex flex-col md:flex-row lg:flex-row gap-6 items-center md:items-end justify-end pt-12 lg:pt-0">
         <!-- Logo Card -->
         <div class="cyber-glass p-6 rounded-3xl w-full md:w-auto min-w-[200px] flex flex-col items-center justify-center gap-4">
            <img 
@@ -100,23 +121,19 @@ import TypingText from "../React/TypingText.tsx";
             alt="Logo" 
             class="size-16 object-contain opacity-80"
           />
-          <div class="flex -space-x-2">
-            <div class="size-8 rounded-full border-2 border-[var(--background)] bg-[var(--primary)]"></div>
-            <div class="size-8 rounded-full border-2 border-[var(--background)] bg-[var(--secondary)]"></div>
-            <div class="size-8 rounded-full border-2 border-[var(--background)] bg-[var(--tertiary)] flex items-center justify-center text-[10px] font-bold">+</div>
-          </div>
+
         </div>
 
-        <!-- Awards Card -->
-        <div class="cyber-glass p-6 rounded-3xl w-full md:w-auto min-w-[200px]">
-          <h2 class="text-4xl font-bold text-[var(--white)]">150+</h2>
-          <p class="text-sm text-[var(--white-icon)] font-medium">Win Awards</p>
+        <!-- Awards Card - Repurposed for Certifications/Labs -->
+        <div class="cyber-glass p-6 rounded-3xl w-full md:w-auto min-w-[200px] flex flex-col items-center md:items-start justify-center">
+          <h2 class="text-4xl font-bold text-[var(--white)]">12+</h2>
+          <p class="text-sm text-[var(--white-icon)] font-medium uppercase tracking-wider">Deployments</p>
         </div>
 
-        <!-- Experience Card -->
-        <div class="cyber-glass p-6 rounded-3xl w-full md:w-auto min-w-[200px]">
-          <h2 class="text-4xl font-bold text-[var(--white)]">12Years</h2>
-          <p class="text-sm text-[var(--white-icon)] font-medium">Experience</p>
+        <!-- Experience Card - Repurposed for Systems -->
+        <div class="cyber-glass p-6 rounded-3xl w-full md:w-auto min-w-[200px] flex flex-col items-center md:items-start justify-center">
+          <h2 class="text-4xl font-bold text-[var(--white)]">Zero</h2>
+          <p class="text-sm text-[var(--white-icon)] font-medium uppercase tracking-wider">Trust Core</p>
         </div>
       </div>
     </div>
@@ -162,6 +179,30 @@ import TypingText from "../React/TypingText.tsx";
 </section>
 
 <style is:global>
+  .shiny-sec {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 25%,
+      var(--primary-light) 50%,
+      var(--primary) 75%
+    );
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3s linear infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 100% 50%;
+    }
+    30%,
+    70% {
+      background-position: 0% 50%;
+    }
+  }
+
   .blob {
     position: absolute;
     width: 600px;
@@ -193,29 +234,5 @@ import TypingText from "../React/TypingText.tsx";
   @keyframes move2 {
     0% { transform: translate3d(0, 0, 0) scale(1.2); }
     100% { transform: translate3d(-10%, -15%, 0) scale(1); }
-  }
-
-  .shiny-sec {
-    background: linear-gradient(
-      135deg,
-      var(--primary) 25%,
-      var(--primary-light) 50%,
-      var(--primary) 75%
-    );
-    background-size: 400% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: shine 3s linear infinite;
-  }
-
-  @keyframes shine {
-    0% {
-      background-position: 100% 50%;
-    }
-    30%,
-    70% {
-      background-position: 0% 50%;
-    }
   }
 </style>
