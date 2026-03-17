@@ -65,7 +65,7 @@ const SkillsList = () => {
 
   return (
     <div className="flex flex-col items-center lg:items-start text-center lg:text-left pt-3 md:pt-9">
-      <h3 className="text-[var(--white)] text-3xl md:text-4xl font-semibold md:mb-6 min-h-[1.2em]">
+      <h3 className="text-[var(--white)] text-2xl md:text-4xl font-semibold md:mb-6 min-h-[1.2em]">
         <TypingText text="My skills" />
       </h3>
       <ul className="flex flex-col items-center lg:items-start space-y-4 mt-4 text-lg w-full">
