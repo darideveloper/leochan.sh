@@ -35,7 +35,7 @@ const navItems: NavItem[] = [
     class="fixed left-1/2 -translate-x-1/2 z-[100] bg-[var(--background)] border border-1 border-transparent backdrop-blur-xl transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
   >
     <div class="max-w-8xl mx-auto flex justify-between items-center p-3 px-6 sm:px-6 lg:px-8 transition-all duration-500 ease-in-out" id="nav-container">
-      <a href="#home" class="nav-logo hidden md:block transition-all duration-500 ease-in-out hover:scale-105 whitespace-nowrap overflow-hidden" aria-label="NEKOCORP // L.A. Home">
+      <a href="/#home" class="nav-logo hidden md:block transition-all duration-500 ease-in-out hover:scale-105 whitespace-nowrap overflow-hidden" aria-label="NEKOCORP // L.A. Home">
         <span class="font-vcr text-xl text-[var(--white)] tracking-tighter">NEKOCORP // L.A.</span>
       </a>
       <ul
@@ -161,12 +161,13 @@ const navItems: NavItem[] = [
 
   document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-      e.preventDefault();
       const target = e.currentTarget as HTMLAnchorElement;
       const href = target.getAttribute("href") || "";
       const targetId = href.split("#")[1] || "";
       const targetElement = document.getElementById(targetId);
+
       if (targetElement) {
+        e.preventDefault();
         targetElement.scrollIntoView({
           behavior: "smooth",
         });
