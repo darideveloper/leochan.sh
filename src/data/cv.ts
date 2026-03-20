@@ -145,7 +145,7 @@ export const cvData: CVData = {
     "Professional Simulator: Airbus A320",
   ],
   languages: [
-    { name: "French", level: "Mother tongue" },
+    { name: "French", level: "Native" },
     { name: "English", level: "TOEIC 940 (Full linguistic proficiency)" },
   ],
   interests: [
