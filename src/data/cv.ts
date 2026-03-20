@@ -158,4 +158,8 @@ export const cvData: CVData = {
   ],
 };
 
-export default cvData;
+export function getCVData(): CVData {
+  return cvData;
+}
+
+export default getCVData;
