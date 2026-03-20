@@ -4,21 +4,24 @@ import stockin from "../../public/stockin.png";
 import svgl from "../../public/svgl.png";
 import velez from "../../public/velez.png";
 
-export interface Project {
+export interface ProjectSummary {
   id: string;
   title: string;
-  description: string;
-  fullDescription: string;
-  content: string; // Markdown content
   image: ImageMetadata;
   link: string; // GitHub/Source
   preview: string; // Live demo
   status: string;
+}
+
+export interface ProjectDetail extends ProjectSummary {
+  description: string;
+  fullDescription: string;
+  content: string; // Markdown content
   technologies: string[];
   date: string;
 }
 
-export const projects: Project[] = [
+export const projects: ProjectDetail[] = [
   {
     id: "movies-for-devs",
     title: "MoviesForDevs",
@@ -131,10 +134,23 @@ Built using **Astro** for the frontend and **Firebase** for real-time data and a
   },
 ];
 
-export function getProjects() {
-  return projects;
+/**
+ * Returns a summary of all projects (simulating a list endpoint)
+ */
+export function getProjects(): ProjectSummary[] {
+  return projects.map(({ id, title, image, link, preview, status }) => ({
+    id,
+    title,
+    image,
+    link,
+    preview,
+    status,
+  }));
 }
 
-export function getProjectById(id: string) {
+/**
+ * Returns full details for a single project (simulating a detail endpoint)
+ */
+export function getProjectById(id: string): ProjectDetail | undefined {
   return projects.find((p) => p.id === id);
 }

@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import TypingText from "../React/TypingText.tsx";
-import { getProjects } from "@/data/projects";
+import { getProjects, type ProjectSummary } from "@/data/projects";
 
-const projects = getProjects();
+const projects: ProjectSummary[] = getProjects();
 ---
 
 <section
