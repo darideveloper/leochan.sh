@@ -1,9 +1,9 @@
 # Proposal: Relocate Hero Quote to Skills Section
 
-## Goal
+## Why
 The goal of this change is to refine the home page layout by removing the prominent quote from the Hero section and relocating it to the Skills section. Simultaneously, the large "NEKOCORP" logo and title currently in the Skills section will be completely removed to create a more balanced and professional UI.
 
-## Scope
+## What Changes
 - **UI Refactoring:** Remove the quote block from the Hero section in `src/components/home.astro`.
 - **UI Removal:** Delete the large logo image and "NEKOCORP" text from the right column of the Skills section in `src/components/home.astro`.
 - **UI Relocation:** Place the quote block (including decorative icons) into the right column of the Skills section where the logo was previously located.

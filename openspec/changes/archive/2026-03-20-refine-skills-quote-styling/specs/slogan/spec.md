@@ -2,7 +2,7 @@
 
 ## MODIFIED Requirements
 ### Requirement: Display Professional Slogan
-The professional slogan highlights the engineer's expertise in infrastructure automation and cybersecurity.
+The professional slogan **SHALL** highlight the engineer's expertise in infrastructure automation and cybersecurity.
 
 #### MODIFIED Scenario: Slogan in Skills Section
 - **Given** the user visits the home page.

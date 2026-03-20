@@ -3,11 +3,11 @@
 ## Purpose
 Define the layout, typography, and visual components of the Hero section to ensure a visually dominant and engaging introduction to the application.
 
-## Requirements
-### MODIFIED Requirement: Massive Typography Title
-The Hero section MUST feature a large, dominant title focal point utilizing the portfolio owner's name.
+## MODIFIED Requirements
+### Requirement: Massive Typography Title
+The Hero section **SHALL** feature a large, dominant title focal point utilizing the portfolio owner's name.
 
-#### Scenario: Display Portfolio Owner Name
+#### MODIFIED Scenario: Display Portfolio Owner Name
 - **GIVEN** a viewport of any size.
 - **WHEN** the hero section is rendered.
 - **THEN** the main heading MUST display "LEONARD-ANTON" in a single line.
@@ -15,7 +15,7 @@ The Hero section MUST feature a large, dominant title focal point utilizing the 
 - **AND** it MUST use a heavy font weight (`font-black` or `font-bold`).
 - **AND** it MUST be responsive and scale to fit the viewport width.
 
-#### Scenario: Remove Secondary Tagline
+#### MODIFIED Scenario: Remove Secondary Tagline
 - **GIVEN** the hero section.
 - **WHEN** rendered.
 - **THEN** it MUST NOT feature the "& Security." subtitle directly below the main title.

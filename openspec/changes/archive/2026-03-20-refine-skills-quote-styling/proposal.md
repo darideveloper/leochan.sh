@@ -1,9 +1,9 @@
 # Proposal: Refine Skills Quote Styling
 
-## Goal
+## Why
 The goal of this change is to enhance the visual prominence of the professional quote in the Skills section by increasing its font size and ensuring its color is pure white, improving readability and impact.
 
-## Scope
+## What Changes
 - **Color Update:** Change the quote text color from `text-[var(--white-icon)]` to `text-[var(--white)]` (or `text-white`).
 - **Font Size Update:** Increase the font size by approximately 50%.
     - Mobile: `text-md` (1rem) -> `text-2xl` (1.5rem)

@@ -2,9 +2,7 @@
 
 ## Purpose
 This specification defines the professional skills architecture, including the T-shaped skill categorization and the dynamic logo marquee for tool recognition.
-
 ## Requirements
-
 ### Requirement: Professional Skill Categories
 The `SkillsList` component MUST display 5 professional categories reflecting the user's "T-shaped" skill set.
 
@@ -28,3 +26,4 @@ The `LogoWall` component MUST include specific tool icons for all core technolog
 - **Given** the `LogoWall` component.
 - **When** the marquee is scrolling.
 - **Then** icons for Authentik, Cisco Duo, Wazuh, Debian, Red Hat, Tailscale, UniFi, Backblaze, Kasm, Django, Redis, ServiceNow, RustDesk, and MQTT MUST be present.
+

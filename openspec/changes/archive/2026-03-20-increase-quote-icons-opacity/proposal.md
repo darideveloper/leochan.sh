@@ -1,9 +1,9 @@
 # Proposal: Increase Quote Icons Opacity
 
-## Goal
+## Why
 The goal of this change is to make the large decorative quotes in the Skills section more visible by increasing their opacity by 30%. This will enhance the overall visual depth and "Cyber-Glass" feel of the section.
 
-## Scope
+## What Changes
 - **UI Adjustment:** Change the opacity of the `<span>` elements (the decorative `“` and `”`) in the Skills section from `opacity-10` to `opacity-40`.
 - **Component Update:** Modify `src/components/home.astro` accordingly.
 
