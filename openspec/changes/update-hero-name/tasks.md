@@ -10,6 +10,6 @@
     - [x] Update `openspec/specs/hero/spec.md` to reflect the change from a topical title to the portfolio owner's name.
     - [x] Ensure the "single line" requirement is documented in the spec.
 
-- [ ] **Validation**
-    - [ ] Run `npm run build` to ensure no build regressions.
-    - [ ] Manually verify responsiveness on mobile, tablet, and desktop viewports.
+- [x] **Validation**
+    - [x] Run `npm run build` to ensure no build regressions.
+    - [x] Manually verify responsiveness on mobile, tablet, and desktop viewports.
