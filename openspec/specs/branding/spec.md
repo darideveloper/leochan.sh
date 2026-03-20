@@ -39,23 +39,10 @@ The footer SHALL prominently feature the branding logo to maintain visual consis
 ### Requirement: Tech Stack & Skillset
 The branding MUST reflect the owner's actual skillset and toolset using locally-hosted assets where available for performance and visual consistency.
 
-#### Scenario: Updating Tech Wall
-- **Given** the owner's current expertise.
-- **When** the `LogoWall` is rendered.
-- **Then** the following technologies MUST be REMOVED: .NET, Astro, TypeScript, Next.js.
-- **And** the following technologies MUST be ADDED with their respective icons:
-  - **Gitea:** `https://download.logo.wine/logo/Gitea/Gitea-Logo.wine.png` (Update existing GitHub link to Gitea icon)
-  - **Kasm Workspaces:** `/images/logos/kasm.webp` (Local asset replacement)
-  - **Cisco Duo:** `https://upload.wikimedia.org/wikipedia/commons/8/8b/Duo_Logo_Green.svg`
-  - **Cloudflare:** `https://raw.githubusercontent.com/lobehub/lobeicons/refs/heads/master/packages/static-png/dark/cloudflare-color.png`
-  - **SafeLine:** `https://safepoint.cloud/_next/static/media/logo.11697169.svg`
-  - **GLPI:** `https://avatars.githubusercontent.com/u/13361707?s=280&v=4`
-  - **Wireshark:** `https://www.wireshark.org/_astro/wireshark-logobig.CkRjSOaC_2eT4Ah.png`
-  - **Debian**: `/images/logos/debian.webp`
-  - **Red Hat**: `/images/logos/redhat.webp`
-  - **Tailscale**: `/images/logos/tailscale.webp`
-  - **UniFi**: `/images/logos/unifi.webp`
-  - **Wazuh**: `/images/logos/wazuh.webp`
-- **And** each new technology MUST include its corresponding name.
-- **And** all icons MUST apply the standard `brightness-0 invert opacity-60` CSS filter for visual consistency.
+#### Scenario: Optimized Tech Wall Assets
+- **Given** the `LogoWall` component.
+- **When** icons for Gitea, Cisco Duo, Cloudflare, SafeLine, GLPI, and Wireshark are rendered.
+- **Then** they MUST use local optimized assets (e.g., `.webp` or `.svg` in `/images/logos/`).
+- **And** all icons MUST use a performant CSS strategy for their "faded" look (e.g., `grayscale(1) invert(1)` or CSS `opacity`) instead of the expensive `brightness-0 invert` filter.
+- **And** the hover state MUST transition smoothly to its original or full-opacity state.
 
