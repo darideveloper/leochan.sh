@@ -32,7 +32,7 @@ const navItems: NavItem[] = [
 <div class="flex justify-center w-full">
   <nav
     id="main-nav"
-    class="fixed left-1/2 -translate-x-1/2 z-[100] bg-[var(--background)] border border-1 border-transparent backdrop-blur-xl transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
+    class="fixed left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0"
   >
     <div class="max-w-8xl mx-auto flex justify-between items-center p-3 px-6 sm:px-6 lg:px-8 transition-all duration-500 ease-in-out" id="nav-container">
       <a href="/#home" class="nav-logo hidden md:block transition-all duration-500 ease-in-out hover:scale-105 whitespace-nowrap overflow-hidden" aria-label="NEKOCORP // L.A. Home">
@@ -66,7 +66,11 @@ const navItems: NavItem[] = [
 <style>
   nav {
     transform: translateX(-50%);
-    background-color: var(--background);
+    background-color: rgba(20, 16, 26, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
     width: 80%;
     max-width: 1200px;
     transition:
@@ -79,11 +83,6 @@ const navItems: NavItem[] = [
 
   nav.scrolling {
     width: 640px;
-    background-color: rgba(20, 16, 26, 0.4);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-color: rgba(255, 255, 255, 0.1);
-    border-radius: 9999px;
   }
 
   nav.scrolling .nav-logo {
@@ -114,8 +113,6 @@ const navItems: NavItem[] = [
 
     nav.scrolling {
       width: 100% !important;
-      border-radius: 1rem 1rem 0 0;
-      background-color: var(--surface);
     }
 
     .nav-logo {

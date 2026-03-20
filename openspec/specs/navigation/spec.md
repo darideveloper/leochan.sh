@@ -2,7 +2,6 @@
 
 ## Purpose
 Define the visual and behavioral standards for the site's navigation bar, including state transitions, width calculations, and active link highlighting across different devices.
-
 ## Requirements
 ### Requirement: Navigation Width Calculation
 The navigation header MUST have a minimum width of `640px` when the user has scrolled significantly.
@@ -19,13 +18,20 @@ Navigation items MUST have a balanced spacing that prevents overflow in the mini
 - Then the horizontal spacing MUST be `2rem` (`md:gap-8`) and MUST NOT have redundant `space-x` classes.
 
 ### Requirement: Layout Transitions
-The navigation bar MUST transition smoothly between its initial and scrolling states without hiding the brand identity.
+The navigation bar MUST maintain a persistent glassmorphism look (semi-transparent background and rounded borders) while transitioning smoothly between its initial and scrolling widths.
 
-#### Scenario: Scrolling with brand identity
-- **Given** the user is scrolling the page.
+#### Scenario: Persistent glass look at top of page
+- **Given** the user is at the very top of the page.
+- **When** the navigation bar is rendered.
+- **Then** it MUST have a semi-transparent background (e.g., `rgba(20, 16, 26, 0.4)`).
+- **And** it MUST have rounded borders (`border-radius: 9999px` for desktop).
+- **And** it MUST have a subtle border color.
+
+#### Scenario: Scrolling with width transition
+- **Given** the user scrolls down.
 - **When** the navigation bar enters its scrolling state.
-- **Then** the logo MUST remain visible and at its original opacity.
-- **And** the navigation container MUST maintain its layout with items balanced (e.g., `justify-between`).
+- **Then** the `width` MUST transition from its base width (e.g., `80%`) to its scrolling width (e.g., `640px`).
+- **And** the background, border, and rounded corners MUST remain consistent with the initial state.
 
 ### Requirement: Logo Navigation Link
 The navigation logo MUST function as a link that scrolls the user back to the top of the home page.
@@ -66,3 +72,4 @@ The application MUST ensure consistent spacing at the bottom of the viewport whe
 - **Given** a mobile viewport.
 - **When** the bottom navigation bar is rendered.
 - **Then** the body padding MUST be managed via a centralized CSS variable (e.g., `--mobile-nav-height`).
+
