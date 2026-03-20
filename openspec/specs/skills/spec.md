@@ -27,4 +27,4 @@ The `LogoWall` component MUST include specific tool icons for all core technolog
 #### Scenario: Icon Presence
 - **Given** the `LogoWall` component.
 - **When** the marquee is scrolling.
-- **Then** icons for Authentik, Cisco, Wazuh, Restic, Backblaze, Kasm, Django, Redis, C#, .NET, ServiceNow, RustDesk, and MQTT MUST be present.
+- **Then** icons for Authentik, Cisco Duo, Wazuh, Debian, Red Hat, Tailscale, UniFi, Backblaze, Kasm, Django, Redis, ServiceNow, RustDesk, and MQTT MUST be present.
