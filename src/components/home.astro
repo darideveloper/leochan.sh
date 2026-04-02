@@ -1,99 +1,124 @@
 ---
-import LetterGlitch from "../React/LetterGlitch.tsx";
-import LogoWall from "../React/LogoWall.tsx";
-import SkillsList from "../React/SkillsList.tsx";
-import TypingText from "../React/TypingText.tsx";
+import LetterGlitch from '../React/LetterGlitch.tsx'
+import LogoWall from '../React/LogoWall.tsx'
+import SkillsList from '../React/SkillsList.tsx'
+import TypingText from '../React/TypingText.tsx'
 ---
 
-<section class="relative text-[var(--white)] mt-12 md:mt-0 overflow-hidden" id="home">
+<section
+  class='relative text-[var(--white)] mt-12 md:mt-0 overflow-hidden'
+  id='home'
+>
   <!-- Localized Fluid Background Blobs -->
-  <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
+  <div
+    class='absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40'
+  >
+    <div class='blob blob-1'></div>
+    <div class='blob blob-2'></div>
   </div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 md:pt-44 md:pb-24 pb-14">
-    <div class="space-y-2 mb-12">
-      <h2 class="text-sm md:text-lg text-[var(--sec)] mb-2 shiny-sec">
-        <TypingText client:visible text="[ INITIALIZING ]" />
+  <div
+    class='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 md:pt-44 md:pb-24 pb-14'
+  >
+    <div class='space-y-2 mb-12'>
+      <h2 class='text-sm md:text-lg text-[var(--sec)] mb-2 shiny-sec'>
+        <TypingText
+          client:visible
+          text='[ INITIALIZING ]'
+        />
       </h2>
-      <h3 class="text-2xl md:text-5xl font-medium">
-        <TypingText client:visible text="[01] _WHOAMI" />
+      <h3 class='text-2xl md:text-5xl font-medium'>
+        <TypingText
+          client:visible
+          text='[01] _WHOAMI'
+        />
       </h3>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+    <div class='grid grid-cols-1 lg:grid-cols-2 gap-12 items-end'>
       <!-- Left Column: Intro and Typography -->
-      <div class="text-left space-y-6">
-        <div class="space-y-2">
-          <p class="text-md md:text-xl font-vcr tracking-widest text-[var(--primary-light)] opacity-80 uppercase">
-             <TypingText
+      <div class='text-left space-y-6'>
+        <div class='space-y-2'>
+          <p
+            class='text-md md:text-xl font-vcr tracking-widest text-[var(--primary-light)] opacity-80 uppercase'
+          >
+            <TypingText
               client:load
-              text="Hi, I’m Leonard-Anton"
+              text='Hi, I’m'
               speed={70}
             />
           </p>
-          <div class="flex flex-col">
+          <div class='flex flex-col'>
             <h1
-              class="text-[var(--white)] text-3xl sm:text-4xl md:text-6xl lg:text-[7.5rem] xl:text-[9rem] font-black leading-[0.85] tracking-tighter uppercase whitespace-nowrap"
+              class='text-[var(--white)] text-3xl sm:text-4xl md:text-6xl lg:text-[7.5rem] xl:text-[9rem] font-black leading-[0.85] tracking-tighter uppercase whitespace-nowrap'
             >
               LEONARD-ANTON
             </h1>
           </div>
         </div>
 
-        <div class="space-y-6 pt-4">
-          <p class="text-sm md:text-md font-vcr text-[var(--white-icon)] leading-relaxed max-w-xl opacity-80">
-            Cybersecurity & Infrastructure Engineer specializing in Zero-Trust architectures and automation.
+        <div class='space-y-6 pt-4'>
+          <p
+            class='text-sm md:text-md font-vcr text-[var(--white-icon)] leading-relaxed max-w-xl opacity-80'
+          >
+            Cybersecurity & Infrastructure Engineer specializing in Zero-Trust
+            architectures and automation.
           </p>
-          
-          <div class="flex items-center gap-4">
-             <a href="#projects" class="text-[var(--primary-light)] underline underline-offset-8 font-medium hover:text-[var(--white)] transition-colors">
-               Explore Lab »
-             </a>
+
+          <div class='flex items-center gap-4'>
+            <a
+              href='#projects'
+              class='text-[var(--primary-light)] underline underline-offset-8 font-medium hover:text-[var(--white)] transition-colors'
+            >
+              Explore Lab »
+            </a>
           </div>
 
-          <div class="flex justify-start gap-3 pt-4">
+          <div class='flex justify-start gap-3 pt-4'>
             <a
-              target="_blank"
-              href="https://git.nekocorp.fr/leo"
-              aria-label="Gitea"
-              class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-surface hover:bg-[var(--white-icon-tr)]"
+              target='_blank'
+              href='https://git.nekocorp.fr/leo'
+              aria-label='Gitea'
+              class='text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-surface hover:bg-[var(--white-icon-tr)]'
             >
-              <img src="/images/logos/gitea.webp" alt="Gitea" class="size-6 object-contain grayscale invert opacity-60 group-hover:opacity-100" />
+              <img
+                src='/images/logos/gitea.webp'
+                alt='Gitea'
+                class='size-6 object-contain grayscale invert opacity-60 group-hover:opacity-100'
+              />
             </a>
             <a
-              target="_blank"
-              href="https://www.linkedin.com/in/leonard-anton-llosa/"
-              aria-label="LinkedIn"
-              class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-surface hover:bg-[var(--white-icon-tr)]"
+              target='_blank'
+              href='https://www.linkedin.com/in/leonard-anton-llosa/'
+              aria-label='LinkedIn'
+              class='text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-surface hover:bg-[var(--white-icon-tr)]'
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                fill='currentColor'
+                class='size-6'
               >
                 <path
-                  d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"
+                  d='M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z'
                 ></path>
               </svg>
             </a>
             <a
-              target="_blank"
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=leonard+leochan.sh@nekocorp.fr&su=Infrastructure%20Inquiry"
-              aria-label="E-mail"
-              class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-surface hover:bg-[var(--white-icon-tr)]"
+              target='_blank'
+              href='https://mail.google.com/mail/?view=cm&fs=1&to=leonard+leochan.sh@nekocorp.fr&su=Infrastructure%20Inquiry'
+              aria-label='E-mail'
+              class='text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-surface hover:bg-[var(--white-icon-tr)]'
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1.8em"
-                height="1.8em"
-                viewBox="0 0 24 24"
+                xmlns='http://www.w3.org/2000/svg'
+                width='1.8em'
+                height='1.8em'
+                viewBox='0 0 24 24'
               >
                 <path
-                  fill="currentColor"
-                  d="m18.73 5.41l-1.28 1L12 10.46L6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64"
+                  fill='currentColor'
+                  d='m18.73 5.41l-1.28 1L12 10.46L6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64'
                 ></path>
               </svg>
             </a>
@@ -102,39 +127,58 @@ import TypingText from "../React/TypingText.tsx";
       </div>
 
       <!-- Right Column: Stat Cards (Component Reuse) -->
-      <div class="relative flex flex-col md:flex-row lg:flex-row gap-6 items-center md:items-end justify-end pt-12 lg:pt-0">
+      <div
+        class='relative flex flex-col md:flex-row lg:flex-row gap-6 items-center md:items-end justify-end pt-12 lg:pt-0'
+      >
         <!-- Logo Card -->
-        <div class="cyber-glass p-6 rounded-3xl w-full md:w-auto min-w-[200px] flex flex-col items-center justify-center gap-4">
-           <img 
-            src="/logo-leochan.webp" 
-            alt="Logo" 
-            class="size-16 object-contain opacity-80"
+        <div
+          class='cyber-glass p-6 rounded-3xl w-full md:w-auto min-w-[200px] flex flex-col items-center justify-center gap-4'
+        >
+          <img
+            src='/logo-leochan.webp'
+            alt='Logo'
+            class='size-16 object-contain opacity-80'
           />
-
         </div>
 
         <!-- Awards Card - Repurposed for Certifications/Labs -->
-        <div class="cyber-glass p-6 rounded-3xl w-full md:w-auto min-w-[200px] flex flex-col items-center md:items-start justify-center">
-          <h2 class="text-4xl font-bold text-[var(--white)]">12+</h2>
-          <p class="text-sm text-[var(--white-icon)] font-medium uppercase tracking-wider">Deployments</p>
+        <div
+          class='cyber-glass p-6 rounded-3xl w-full md:w-auto min-w-[200px] flex flex-col items-center md:items-start justify-center'
+        >
+          <h2 class='text-4xl font-bold text-[var(--white)]'>12+</h2>
+          <p
+            class='text-sm text-[var(--white-icon)] font-medium uppercase tracking-wider'
+          >
+            Deployments
+          </p>
         </div>
 
         <!-- Experience Card - Repurposed for Systems -->
-        <div class="cyber-glass p-6 rounded-3xl w-full md:w-auto min-w-[200px] flex flex-col items-center md:items-start justify-center">
-          <h2 class="text-4xl font-bold text-[var(--white)]">Zero</h2>
-          <p class="text-sm text-[var(--white-icon)] font-medium uppercase tracking-wider">Trust Core</p>
+        <div
+          class='cyber-glass p-6 rounded-3xl w-full md:w-auto min-w-[200px] flex flex-col items-center md:items-start justify-center'
+        >
+          <h2 class='text-4xl font-bold text-[var(--white)]'>Zero</h2>
+          <p
+            class='text-sm text-[var(--white-icon)] font-medium uppercase tracking-wider'
+          >
+            Trust Core
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Reused LogoWall at the bottom -->
-    <div class="pt-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+    <div
+      class='pt-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500'
+    >
       <LogoWall client:visible />
     </div>
   </div>
 
   <!-- Reused Skills Section with LetterGlitch -->
-  <div class="relative w-full py-12 md:py-24 border-y border-[var(--white-icon-tr)] mt-8 overflow-hidden">
+  <div
+    class='relative w-full py-12 md:py-24 border-y border-[var(--white-icon-tr)] mt-8 overflow-hidden'
+  >
     <!-- Background Canvas -->
     <!--
     <div class="absolute inset-0 z-0 opacity-80 pointer-events-none">
@@ -149,18 +193,31 @@ import TypingText from "../React/TypingText.tsx";
     </div>
     -->
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-        <div class="w-full lg:w-1/2">
+    <div class='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      <div
+        class='flex flex-col lg:flex-row items-center justify-between gap-12'
+      >
+        <div class='w-full lg:w-1/2'>
           <SkillsList client:visible />
         </div>
-        <div class="w-full lg:w-1/2 flex flex-col items-center justify-center lg:mt-12">
-          <div class="relative max-w-xl">
-            <span class="absolute -left-6 -top-10 text-9xl text-[var(--white-icon)] opacity-40 font-serif pointer-events-none select-none">“</span>
-            <p class="relative z-10 text-2xl md:text-4xl text-[var(--white)] italic pl-4 leading-relaxed">
-              From IT to aviation, I thrive on complex systems, committed to the dual pillars of technical performance and security.
+        <div
+          class='w-full lg:w-1/2 flex flex-col items-center justify-center lg:mt-12'
+        >
+          <div class='relative max-w-xl'>
+            <span
+              class='absolute -left-6 -top-10 text-9xl text-[var(--white-icon)] opacity-40 font-serif pointer-events-none select-none'
+              >“</span
+            >
+            <p
+              class='relative z-10 text-2xl md:text-4xl text-[var(--white)] italic pl-4 leading-relaxed'
+            >
+              From IT to aviation, I thrive on complex systems, committed to the
+              dual pillars of technical performance and security.
             </p>
-            <span class="absolute -right-6 -bottom-16 text-9xl text-[var(--white-icon)] opacity-40 font-serif pointer-events-none select-none">”</span>
+            <span
+              class='absolute -right-6 -bottom-16 text-9xl text-[var(--white-icon)] opacity-40 font-serif pointer-events-none select-none'
+              >”</span
+            >
           </div>
         </div>
       </div>
@@ -217,12 +274,20 @@ import TypingText from "../React/TypingText.tsx";
   }
 
   @keyframes move1 {
-    0% { transform: translate3d(0, 0, 0) scale(1); }
-    100% { transform: translate3d(15%, 10%, 0) scale(1.1); }
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+      transform: translate3d(15%, 10%, 0) scale(1.1);
+    }
   }
 
   @keyframes move2 {
-    0% { transform: translate3d(0, 0, 0) scale(1.2); }
-    100% { transform: translate3d(-10%, -15%, 0) scale(1); }
+    0% {
+      transform: translate3d(0, 0, 0) scale(1.2);
+    }
+    100% {
+      transform: translate3d(-10%, -15%, 0) scale(1);
+    }
   }
 </style>
