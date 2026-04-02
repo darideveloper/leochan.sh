@@ -9,11 +9,8 @@ export default defineConfig({
   integrations: [tailwind(), react()],
   image: {
     remotePatterns: [
-      {
-        protocol: "http",
-        hostname: "localhost",
-        port: "8000",
-      },
+      { protocol: "https" },
+      { protocol: "http" },
     ],
   },
   vite: {
