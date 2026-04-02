@@ -2,23 +2,29 @@
 import Layout from "@/layouts/Layout.astro";
 import Nav from "@/components/nav.astro";
 import Footer from "@/components/footer.astro";
-import { projects, type ProjectDetail } from "@/data/projects";
+import { getProjects, getProjectById, type ProjectDetail } from "@/data/projects";
 import { Image } from "astro:assets";
 import TypingText from "@/React/TypingText.tsx";
 import { marked } from "marked";
 
 export async function getStaticPaths() {
+  const projects = await getProjects();
   return projects.map((project) => ({
     params: { id: project.id },
-    props: { project },
   }));
 }
 
 interface Props {
-  project: ProjectDetail;
+  // project is now fetched in the frontmatter instead of being passed as prop
 }
 
-const { project } = Astro.props;
+const { id } = Astro.params;
+const project = await getProjectById(id!);
+
+if (!project) {
+  return Astro.redirect("/404");
+}
+
 const contentHtml = await marked.parse(project.content);
 ---
 
@@ -100,13 +106,16 @@ const contentHtml = await marked.parse(project.content);
         <!-- Markdown Content Area -->
         <div class="lg:col-span-2 space-y-8 lg:order-first">
           <div class="cyber-glass p-6 md:p-10 rounded-3xl border border-white/10 shadow-2xl shadow-purple-950/20">
-            <div class="mb-10 rounded-2xl overflow-hidden border border-white/5 group">
-                <Image 
-                   src={project.image} 
-                   alt={project.title} 
-                   class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-1000"
-                 />
-             </div>
+            {project.image && (
+              <div class="mb-10 rounded-2xl overflow-hidden border border-white/5 group">
+                  <Image 
+                     src={project.image} 
+                     alt={project.title} 
+                     inferSize={true}
+                     class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-1000"
+                   />
+               </div>
+            )}
              
              <article class="prose-container">
                <div class="prose prose-invert prose-mono max-w-none" set:html={contentHtml} />

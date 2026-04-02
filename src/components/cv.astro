@@ -9,7 +9,11 @@ interface Props {
 const { titleTag = "h2" } = Astro.props;
 const Tag = titleTag;
 
-const cvData = getCVData();
+const cvData = await getCVData();
+
+if (!cvData) {
+  return null; // or show a fallback UI
+}
 
 const {
   name,
