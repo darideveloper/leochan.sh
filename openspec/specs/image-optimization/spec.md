@@ -2,7 +2,6 @@
 
 ## Purpose
 Configures Astro's built-in image optimization and processing for both local and remote assets to ensure high performance and correct rendering.
-
 ## Requirements
 ### Requirement: Local Image Processing
 The system SHALL process local images during the build to generate optimized formats and sizes based on component usage.
@@ -11,7 +10,8 @@ The system SHALL process local images during the build to generate optimized for
 - **THEN** local images are optimized and placed in the generated `dist` directory
 
 ### Requirement: Remote Image Whitelisting
-The system SHALL only process remote images from domains explicitly allowed in the configuration to prevent unauthorized processing or security risks.
-#### Scenario: Loading remote images from localhost
-- **WHEN** an image from `http://localhost:8000` is requested
+The system SHALL process remote images from any origin to ensure compatibility with dynamic third-party content and prevent build-time regressions.
+#### Scenario: Loading any remote image
+- **WHEN** an image from any `http` or `https` origin is requested in `astro.config.mjs`
 - **THEN** Astro's image service allows and processes the image
+
