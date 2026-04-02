@@ -1,5 +1,8 @@
 ---
+import clsx from 'clsx';
 import TypingText from "../React/TypingText.tsx";
+
+const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:8000/api';
 ---
 
 <section id="contact" class="w-full bg-[var(--background)] py-12 md:py-24 border-y border-[var(--white-icon-tr)] mt-12">
@@ -24,31 +27,31 @@ import TypingText from "../React/TypingText.tsx";
       <div>
         <form
           id="contact-form"
-          action="https://formspree.io/f/leonard_contact_placeholder"
+          data-api-url={`${apiUrl}/contact/`}
           method="POST"
           class="flex flex-col gap-4"
         >
-          <div class="cyber-glass rounded-lg focus-within:ring-2 focus-within:ring-[var(--sec)] transition-all overflow-hidden">
+          <div class={clsx("cyber-glass rounded-lg focus-within:ring-2 focus-within:ring-[var(--sec)] transition-all overflow-hidden")}>
             <input
               type="text"
-              name="from_name"
+              name="name"
               placeholder="Name"
               aria-label="Name"
               required
               class="px-4 py-2 bg-transparent w-full h-full text-[var(--white)] border-none outline-none"
             />
           </div>
-          <div class="cyber-glass rounded-lg focus-within:ring-2 focus-within:ring-[var(--sec)] transition-all overflow-hidden">
+          <div class={clsx("cyber-glass rounded-lg focus-within:ring-2 focus-within:ring-[var(--sec)] transition-all overflow-hidden")}>
             <input
               type="email"
-              name="reply_to"
+              name="email"
               placeholder="Email"
               aria-label="Email"
               required
               class="px-4 py-2 bg-transparent w-full h-full text-[var(--white)] border-none outline-none"
             />
           </div>
-          <div class="cyber-glass rounded-lg focus-within:ring-2 focus-within:ring-[var(--sec)] transition-all overflow-hidden">
+          <div class={clsx("cyber-glass rounded-lg focus-within:ring-2 focus-within:ring-[var(--sec)] transition-all overflow-hidden")}>
             <textarea
               name="message"
               placeholder="Message"
@@ -60,9 +63,12 @@ import TypingText from "../React/TypingText.tsx";
           </div>
           <button
             type="submit"
-            class="px-4 py-2 bg-[var(--white-icon-tr)] text-[var(--white)] rounded-lg opacity-60 transition-opacity border border-[var(--white-icon-tr)] hover:opacity-100 hover:bg-[var(--white-icon-tr)] font-vcr"
+            class={clsx(
+              "px-4 py-2 bg-[var(--white-icon-tr)] text-[var(--white)] rounded-lg opacity-60 transition-opacity border border-[var(--white-icon-tr)] hover:opacity-100 hover:bg-[var(--white-icon-tr)] font-vcr flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-40"
+            )}
           >
-            ssh leonard+leochan.sh@nekocorp.fr
+            <span>ssh leonard+leochan.sh@nekocorp.fr</span>
+            <div id="form-spinner" class="hidden w-4 h-4 border-2 border-[var(--white)] border-t-transparent rounded-full animate-spin"></div>
           </button>
         </form>
         <div
@@ -76,20 +82,32 @@ import TypingText from "../React/TypingText.tsx";
   </div>
 </section>
 
-<script type="module" is:inline>
+<script type="module">
   const form = document.getElementById("contact-form");
   const formMessage = document.getElementById("form-message");
+  const formSpinner = document.getElementById("form-spinner");
+  const submitBtn = form.querySelector('button[type="submit"]');
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    const apiUrl = form.dataset.apiUrl;
     const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    // UI state: Loading
+    submitBtn.disabled = true;
+    formSpinner.classList.remove("hidden");
 
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch(apiUrl, {
         method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
+        body: JSON.stringify(payload),
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json" 
+        },
       });
+      
       if (response.ok) {
         form.reset();
         form.style.display = "none";
@@ -97,11 +115,23 @@ import TypingText from "../React/TypingText.tsx";
       } else {
         const data = await response.json();
         console.error("Error response:", data);
-        alert("A problem occurred while sending your message.");
+        
+        let errorMessage = "A problem occurred while sending your message.";
+        if (data && typeof data === 'object') {
+          const firstError = Object.values(data)[0];
+          if (Array.isArray(firstError)) {
+            errorMessage = firstError[0];
+          }
+        }
+        alert(errorMessage);
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("A problem occurred while sending your message.");
+      alert("ssh connection timed out. Please check your network and try again.");
+    } finally {
+      // Re-enable UI state
+      submitBtn.disabled = false;
+      formSpinner.classList.add("hidden");
     }
   });
 </script>
